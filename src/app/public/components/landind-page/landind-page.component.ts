@@ -38,6 +38,7 @@ export class LandindPageComponent implements OnInit, AfterViewInit, OnDestroy {
         this.formatedData = this.formatData(result);
       },
       error: er => {
+        this.formatData([]);
         console.log(er);
       }
     });
