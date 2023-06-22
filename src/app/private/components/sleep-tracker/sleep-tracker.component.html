@@ -1,0 +1,36 @@
+<div class="card text-center">
+    <div class="card-header text-end">
+        <button type="button" class="btn btn-link close mt-2 mb-2" aria-label="Close" id='sleep'
+            (click)='disableIt(name)' #name>X</button>
+    </div>
+    <div class="card-body">
+        <div class="card-title">
+            <p> Sleep Tracker: </p>
+        </div>
+        <div class="card-subtitle mt-2 text-muted">
+            <p>How many hours did you sleep last night?</p>
+        </div>
+        <div class="label row mb-2">
+            <div class="col-6 text-start">Hours:</div>
+            <label class="col-6 text-end">{{value}}</label>
+        </div>
+        <div class="row slider text-center">
+            <mat-slider class="example-margin text-center" [invert]="invert" [max]="max" [min]="min" [step]="step"
+                [thumbLabel]="thumbLabel" [tickInterval]="getSliderTickInterval()" [(ngModel)]="value"
+                aria-labelledby="example-name-label" (change)="setSleepHours()">
+            </mat-slider>
+        </div>
+        <ng-container *ngIf="errorMessage">
+            <div class="mt-1 text-start ms-4">
+                <small class="errorMessage"> *Something went wrong. Please reload and try again.</small>
+            </div>
+        </ng-container>
+
+        <ng-container>
+            <p class="buttonLink text-end mt-4">
+                <button class="btn btn-link link-secondary" (click)="showIntakes()" value="">View all Sleep logs
+                </button>
+            </p>
+        </ng-container>
+    </div>
+</div>

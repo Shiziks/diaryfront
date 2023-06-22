@@ -1,0 +1,64 @@
+<div class="card p-5" #scrollHere>
+    <div class="card-title text-center">
+        <h1>Manage welcome image:</h1>
+    </div>
+    <div class="card-body mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="card-subtitle mb-3 col-9">{{subtitle}}</div>
+                    <div class="col-3 text-end deleteimage pe-4" (click)="deleteImage()"> <small>Delete image X</small>
+                    </div>
+                </div>
+
+                <div class="image mb-5">
+                    <ng-container *ngIf="selectedImage">
+                        <img src="http://127.0.0.1:8000/{{selectedImage.path}}" alt="" class="d-block w-100 h-50" />
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="card-subtitle mb-3">{{subtitle1}}</div>
+            </div>
+            <div class="col-12">
+                <form [formGroup]="imagesForm">
+                    <div class="input-group">
+                        <input type="file" class="form-control" multiple aria-label="Upload" formControlName="fileTs"
+                            (change)="checkImages($event)">
+                        <button class="btn" type="button" id="addImages" (click)="uploadImages()"
+                            [disabled]="disableSave">Save</button>
+                    </div>
+                </form>
+            </div>
+            <div class="message text-start mt-1 ms-2">
+                <ng-container *ngIf="showErrors">
+                    <ng-container *ngFor="let error of errorMessage">
+                        <p class="text-error text-sm">* {{error}} </p>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="uploaded">
+                    <p class="text-done mt-2 text-sm">
+                        Uploaded successfully.
+                    </p>
+                </ng-container>
+            </div>
+        </div>
+        <div class="row mt-4 pt-2" #formView>
+            <div class="col-12">
+                <div class="card-subtitle mb-3">{{subtitle2}}</div>
+            </div>
+            <div class="row mx-2">
+                <ng-container *ngFor="let image of allImages">
+                    <div class="image-row card-img col-3 mx-2 my-3" id="{{image.id}}">
+                        <img src="http://127.0.0.1:8000/{{image.path}}" alt="" class="card-image img-fluid"
+                            (click)="selectImage(image)" [scrollTo]="scrollHere" />
+                    </div>
+                </ng-container>
+            </div>
+
+        </div>
+
+    </div>
+</div>

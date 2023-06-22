@@ -1,0 +1,183 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+  height: 100vh; 
+  margin: 0 auto;
+}
+body.mat-typography { 
+  margin: 0 auto; 
+  font-family: 'poppins-regular'; background: #E1E5EE;
+  min-height:100vh;
+}
+
+
+@font-face {
+  font-family: 'merriweather-regular';
+  src: url(assets/fonts/Merriweather-Regular.ttf) format("TrueType");
+}
+
+@font-face {
+  font-family: 'merriweather-bold';
+  src: url(assets/fonts/Merriweather-Bold.ttf) format("TrueType");
+}
+@font-face {
+  font-family: 'merriweather-black';
+  src: url(assets/fonts/Merriweather-Black.ttf) format("TrueType");
+}
+
+@font-face {
+  font-family: 'montserrat-regular';
+  src: url(assets/fonts/Montserrat-Regular.ttf) format("TrueType");
+}
+
+@font-face {
+  font-family: 'montserrat-light';
+  src: url(assets/fonts/Montserrat-Light.ttf) format("TrueType");
+}
+
+@font-face {
+  font-family: 'montserrat-thin';
+  src: url(assets/fonts/Montserrat-Thin.ttf) format("TrueType");
+}
+
+@font-face {
+  font-family: 'montserrat-semibold';
+  src: url(assets/fonts/Montserrat-SemiBold.ttf) format("TrueType");
+}
+
+@font-face {
+  font-family: 'montserrat-bold';
+  src: url(assets/fonts/Montserrat-Bold.ttf) format("TrueType");
+}
+
+@font-face {
+  font-family: 'montserrat-black';
+  src: url(assets/fonts/Montserrat-Black.ttf) format("TrueType");
+}
+
+
+@font-face {
+  font-family: 'poppins-regular';
+  src: url(assets/fonts/Poppins-Regular.ttf) format("TrueType");
+}
+
+@font-face {
+  font-family: 'poppins-bold';
+  src: url(assets/fonts/Poppins-Bold.ttf) format("TrueType");
+}
+
+@font-face {
+  font-family: 'poppins-semibold';
+  src: url(assets/fonts/Poppins-SemiBold.ttf) format("TrueType");
+
+  @font-face {
+    font-family: 'poppins-medium';
+    src: url(assets/fonts/poppins-medium.ttf) format("TrueType");
+  }
+}
+
+@font-face {
+  font-family: 'poppins-thin';
+  src: url(assets/fonts/Poppins-Thin.ttf) format("TrueType");
+}
+
+
+ul>li.current{
+  background: rgba(118, 123, 145, 1)!important;
+  border-radius: 4px;
+    
+}
+
+.ngx-pagination a, .ngx-pagination button {
+  color: rgba(118, 123, 145,1)!important;
+}
+
+.ngx-pagination a:hover, .ngx-pagination button:hover {
+  border-radius: 4px!important;
+  background-color: rgba(0, 0, 0, 0.03)!important;
+}
+
+mat-icon-button.btnclose .mat-button-focus-overlay{
+  background-color: none;
+
+}
+
+mat-icon.mat-icon.notranslate.material-symbols-outlined.material-icons.mat-ligature-font.mat-icon-no-color {
+  color: rgba(118, 123, 145, 1);
+}
+
+.cdk-global-overlay-wrapper {
+  pointer-events: auto;
+  display: block;
+  position: relative;
+  overflow: auto;
+  text-align: center;
+}
+  
+.cdk-global-overlay-wrapper::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  white-space: nowrap;
+}
+  
+.cdk-overlay-pane {
+  display: inline-block;
+  text-align: left;
+  white-space: normal;
+}
+
+.tooltip-inner {
+  background-color: #a0a6aa !important;
+  max-width: 300px !important;
+  font-weight: 200 !important;
+}
+
+.tooltip-arrow::before {
+  border-top-color: #a0a6aa !important;
+}
+
+.mat-menu-panel.manuMat {
+  background-color: rgba(255, 255, 255, 0.8);
+  /* rgba(225, 229, 238, 0.2); */
+}
+
+button.mat-focus-indicator.mat-menu-item {
+  color: rgba(118, 123, 145, 0.8);
+  font-family: 'Montserrat-semibold';
+  
+}
+
+button.mat-focus-indicator.mat-menu-item mat-icon.mat-icon.material-icons.mat-ligature-font.mat-icon-no-color {
+  color: rgba(118, 123, 145, 1);
+  /* rgba(244, 187, 142, 0.7); */
+  
+  /* margin-right: 5%; */
+}
+
+mat-menu{
+  font-family: 'Montserrat-regular';
+  font-weight: 600;
+}
+
+.mat-accent .mat-slider-track-fill {
+  background-color: #F5BB8E !important;
+}
+
+.mat-slider-thumb-label {
+  background-color: #F6BB8E !important;
+
+}
+
+.mat-slider-thumb {
+  background-color: #F5BB8E !important;
+}
+
+mat-dialog-container.mat-dialog-container{
+  background-color:  #767B91;
+} 
+
+
+
+ 
+

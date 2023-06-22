@@ -1,0 +1,43 @@
+.wrapper {
+    margin: 0 auto;
+}
+
+.card {
+    border: 0px;
+    color: rgba(118, 123, 145, 0.8);
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, 0.30) 0px 25px 20px -20px;
+}
+
+.card-title {
+    font-size: 5vw;
+    margin: 0 auto;
+    font-family: 'poppins-bold';
+}
+
+.card-text {
+    font-family: 'poppins-regular';
+    font-size: 1.5rem;
+    color: rgba(118, 123, 145, 0.6);
+}
+
+.card-text .smaller {
+    font-family: 'poppins-regular';
+    font-size: 1.1rem;
+    color: rgba(118, 123, 145, 0.5);
+}
+
+.faicon {
+    font-size: 3vw !important;
+}
+
+.faicon.back {
+    font-size: 5vw !important;
+    color: #F6BB8E !important;
+    cursor: pointer;
+}
+
+.faicon.back:hover {
+    color: rgba(247, 197, 159, 0.8) !important;
+
+}

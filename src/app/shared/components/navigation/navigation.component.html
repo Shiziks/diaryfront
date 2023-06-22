@@ -1,0 +1,71 @@
+<div class="container text-end">
+  <div class="row mt-3 mb-2">
+    <div class="col-4 text-start my-auto" (mouseover)="checkAuth()">
+      <a routerLink routerLink="{{link}}">
+        <img src="../../../../assets/images/Logo.png" class="logoImage">
+      </a>
+    </div>
+    <div class="col-7">
+      <div class=" welcomeMessage "></div>
+    </div>
+    <div class="col-1">
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="mt-3" aria-label="Example icon-button with a menu"
+        (click)="checkAuth()">
+        <mat-icon class="material-symbols-outlined">menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="manuMat p-2">
+        <ng-container *ngIf="!isAuth">
+          <a (click)="loginClick()">
+            <button mat-menu-item [disabled]=" isAuth">
+              <mat-icon>face</mat-icon>
+              <span>Login</span>
+            </button>
+          </a>
+        </ng-container>
+
+        <ng-container *ngIf="!isAuth">
+          <a (click)="registerClick()">
+            <button mat-menu-item [disabled]="isAuth">
+              <mat-icon>how_to_reg</mat-icon>
+              <span>Register</span>
+            </button>
+          </a>
+        </ng-container>
+
+        <ng-container *ngIf="isAuth && admin">
+          <a routerLink="/admin/admin">
+            <button mat-menu-item [disabled]="!isAuth">
+              <mat-icon>admin_panel_settings</mat-icon>
+              <span>Admin</span>
+            </button>
+          </a>
+        </ng-container>
+
+        <ng-container *ngIf="isAuth && user">
+          <a routerLink="/profile">
+            <button mat-menu-item [disabled]="!isAuth">
+              <mat-icon>person</mat-icon>
+              <span>Profile</span>
+            </button>
+          </a>
+        </ng-container>
+
+        <ng-container *ngIf="isAuth && user">
+          <a routerLink="profile/settings">
+            <button mat-menu-item [disabled]="!isAuth">
+              <mat-icon>manage_accounts</mat-icon>
+              <span>Profile Settins</span>
+            </button>
+          </a>
+        </ng-container>
+
+        <ng-container *ngIf="isAuth">
+          <button mat-menu-item [disabled]="!isAuth" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </ng-container>
+      </mat-menu>
+    </div>
+  </div>
+</div>

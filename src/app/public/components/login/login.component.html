@@ -1,0 +1,35 @@
+<form [formGroup]="loginForm">
+  <h1>Log in</h1>
+  <span class="mt-2 mb-2">to use your MeLog</span>
+  <input type="email" placeholder="Email" required formControlName="emailTs" class='email' />
+  <div *ngIf="
+        this.loginForm.get('emailTs')?.hasError('required') 
+        && this.loginForm.get('emailTs')?.touched" class="errorMessage text-start">
+    * Email is required.
+  </div>
+  <div *ngIf="
+        this.loginForm.get('emailTs')?.hasError('email')" class="errorMessage text-start">
+    * Must be a valid email.
+  </div>
+  <input type="password" placeholder='••••••••••••••' required class='password' formControlName="passwordTs" />
+  <div *ngIf="
+        this.loginForm.get('passwordTs')?.hasError('required') 
+        && this.loginForm.get('passwordTs')?.touched" class="errorMessage text-start">
+    * Password is required.
+  </div>
+  <div *ngIf="
+        this.loginForm.get('passwordTs')?.hasError('pattern')" class="errorMessage text-start">
+    * Must be a valid password.
+  </div>
+  <div *ngIf="error" class="errorMessage fromServer pb-2 pt-2 mt-1 text-center">
+    {{error|uppercase}}
+  </div>
+  <ng-container *ngIf="!verifiedError; else resend">
+    <a class="mt-3 mb-2" routerLink="/resetpassword">Forgot your password?</a>
+    <button class="xghost" id="signIn" (click)="login()"
+      [disabled]="loginForm.invalid || (loginForm.valid && loginForm.untouched)">Log In</button>
+  </ng-container>
+  <ng-template #resend>
+    <button class="xghost mt-2 mb-2" id="signIn" (click)="verifyEmail()">Resend verify email</button>
+  </ng-template>
+</form>

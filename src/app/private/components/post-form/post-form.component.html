@@ -1,0 +1,93 @@
+<div class="card text-center">
+  <div class="card-header text-end">
+    <button type="button" class="btn btn-link close mt-2 mb-2" aria-label="Close" id='daylog' (click)='disableIt(name)'
+      #name>X</button>
+  </div>
+
+  <div class="card-body">
+    <p class="card-title">
+      Log your day:
+    </p>
+    <div class="card-subtitle mt-3 mb-3 text-muted">
+      <p>Write a few lines about your day.</p>
+    </div>
+
+    <form [formGroup]="dayLogForm" class="mb-4">
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="title" placeholder="Title" formControlName='titleTs' />
+
+        <small class='text-danger'
+          *ngIf="dayLogForm.get('titleTs')?.hasError('required') && dayLogForm.get('titleTs')?.touched">
+          Title is required.
+        </small>
+        <small class='text-danger' *ngIf="dayLogForm.get('titleTs')?.hasError('minlength')">
+          Title must be at least 2 characters long.
+        </small>
+        <small class='text-danger' *ngIf="dayLogForm.get('titleTs')?.hasError('maxlength')">
+          Title can be up to 120 characters long.
+        </small>
+      </div>
+
+
+      <div class="form-group mt-3">
+        <textarea class="form-control bcontent" name="content" placeholder='"Today was a good day..."'
+          formControlName="textTs"></textarea>
+        <small class='text-danger'
+          *ngIf="dayLogForm.get('textTs')?.hasError('required') && dayLogForm.get('textTs')?.touched">
+          Text is required.
+        </small>
+        <small class='text-danger' *ngIf="dayLogForm.get('textTs')?.hasError('minlength')">
+          Text must be at least 3 characters long.
+        </small>
+        <small class='text-danger' *ngIf="dayLogForm.get('textTs')?.hasError('maxlength')">
+          Text can be up to 1500 characters long.
+        </small>
+      </div>
+
+      <div class="form-group mt-3">
+        <label class="text-muted mb-1"> Add images of your day</label>
+        <div class="input-group">
+          <span class="input-group-btn">
+            <span class="btn btn-secondary btn-file">
+              Browse <input type="file" multiple name="inputimage" formControlName="imageTs"
+                (change)="checkImages($event)">
+            </span>
+          </span>
+          <input type="text" class="form-control readonlyinput" readonly placeholder="{{filenames}}">
+          <!--Sluzi za ispis imena uhvacenog fajla-->
+        </div>
+        <ng-container *ngIf="showErrors">
+          <ng-container *ngFor="let error of errorMessage">
+            <small class="text-danger text-sm text-start">- {{error}} </small>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="form-group mt-3 mb-3 text-center button">
+        <button name="Submit" value="Post" class="btn btn-secondary form-button form-control" (click)='submitPost()'
+          [disabled]='this.dayLogForm.invalid || this.errorMessage.length || this.dayLogForm.status=="DISABLED"'> Post
+        </button>
+      </div>
+    </form>
+
+    <div class="message">
+      <ng-container *ngIf="successMessage; else button">
+        <small class="text-success">
+          Your Day Log is saved.
+        </small>
+      </ng-container>
+      <ng-template #button>
+        <p class="buttonLink text-end">
+          <button class="btn btn-link link-secondary" (click)="showDayLog()">{{linkText}}
+          </button>
+        </p>
+      </ng-template>
+    </div>
+
+
+
+
+
+
+  </div>
+</div>

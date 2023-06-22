@@ -1,0 +1,34 @@
+.card-title {
+    color: slategray;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.card-subtitle {
+    font-size: 18px;
+    font-weight: 200;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.track td {
+    padding-right: 10px;
+}
+
+fa-icon {
+    color: slategray;
+}
+
+input {
+    width: 95%;
+}

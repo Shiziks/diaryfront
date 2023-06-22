@@ -1,0 +1,13 @@
+<button mat-icon-button mat-dialog-close class="close-button" tabindex="-1">
+    <fa-icon [icon]="faXmark" class="close-icon"></fa-icon>
+</button>
+<div class="modal-dialog  modal-lg mt-3">
+    <div class="modalbody">
+        <img src="http://127.0.0.1:8000/{{data.image_path}}" alt="" class="card-image img-fluid">
+    </div>
+</div>
+<div mat-dialog-actions align="start">
+
+    <button mat-button (click)="deleteImage()">Delete</button>
+    <button mat-button mat-dialog-close>Close</button>
+</div>

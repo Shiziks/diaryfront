@@ -1,0 +1,181 @@
+<div class="card p-5">
+    <div class="card-title text-center">
+        <h1>Admin users:</h1>
+    </div>
+    <div class="card-body mt-4" *ngIf="!newUser ; else newUserForm">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="card-subtitle mb-3 col-8">{{subtitle}}</div>
+                    <div class="col-4 text-end makeNew pe-4" (click)="showMakeNewUser()"> <small>{{smallText}}</small>
+                    </div>
+                </div>
+                <form [formGroup]="emailForm">
+                    <div class="form-group">
+
+                        <input type="email" class="form-control" id="email" aria-describedby="emailSearch"
+                            formControlName="emailTs">
+                        <div
+                            *ngIf="emailForm?.get('emailTs')?.hasError('required') && emailForm?.get('emailTs')?.dirty">
+                            <small id="error" class="error form-text text-muted">*Can't be empty.</small>
+                        </div>
+                        <div *ngIf="emailForm.get('emailTs')?.hasError('pattern')">
+                            <small id="error" class="error form-text text-muted">* Must be a valid email.</small>
+                        </div>
+                    </div>
+                    <div class="buttonDiv text-end mt-3 mb-3">
+                        <button class="btn btn-secondary" (click)="searchEmail()"
+                            [disabled]="this.emailForm.invalid || (!this.emailForm.invalid && !this.emailForm.dirty)">search</button>
+                            <div *ngIf="erMessage!=''" class="pt-1">
+                                <small id="error" class="error form-text text-muted">* {{erMessage}}</small>
+                            </div>
+                    </div>
+                    
+                    <small id="passwordHelp" class="helperTextt ps-2">&#9432; Search for a user by an email.</small>
+
+                </form>
+
+
+
+            </div>
+        </div>
+        <div class="row pt-2" #formView>
+            <div class="col-12 mt-4" *ngIf="showUserData">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="first align-middle">#</th>
+                            <th scope="col" class="first align-middle">Name:</th>
+                            <th scope="col" class="first align-middle">Email:</th>
+                            <th scope="col" class="first align-middle">User roles:</th>
+                            <th scope="col" class="first align-middle text-center">Make admin:</th>
+                            <th scope="col" class="first align-middle text-center">Remove admin:</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="align-middle">{{user.id}}</th>
+                            <td class="align-middle" [id]="user.id">{{user.first_name | titlecase}} {{user.last_name |
+                                titlecase}}</td>
+                            <td class="align-middle" [id]="user.id" #userInfo>{{user.email}}</td>
+                            <td class="align-middle" [id]="user.id" #userInfo>
+                                <ng-container *ngFor="let role of roles; let i=index">{{role.role_name}}<span
+                                        *ngIf="i<roles.length-1">, </span> </ng-container>
+                            </td>
+                            <td class="align-middle text-center">
+                                <fa-icon icon="pen" (click)="makeAdmin(user)"></fa-icon>
+                            </td>
+                            <td class="align-middle text-center editIcon" (click)="deleteAdmin(user, roles)"
+                                [ngClass]="!noClick? 'noClick': 'clickable'">
+                                X
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+    <ng-template #newUserForm>
+        <div class="card-body mt-4">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="card-subtitle mb-4 col-8">{{subtitle}}</div>
+                        <div class="col-4 text-end makeNew pe-4" (click)="showMakeNewUser()">
+                            <small>{{smallText}}</small></div>
+                    </div>
+                    <form [formGroup]="newAdminUserForm">
+                        <div class="form-group mb-4">
+                            <input type="text" class="form-control" id="firstname" aria-describedby="firstname"
+                                formControlName="firstNameTs" placeholder="first name">
+                            <div
+                                *ngIf="newAdminUserForm?.get('firstNameTs')?.hasError('required') && newAdminUserForm?.get('firstNameTs')?.dirty">
+                                <small id="error" class="error form-text text-muted">*Can't be empty.</small>
+                            </div>
+                            <div
+                                *ngIf="newAdminUserForm.get('firstNameTs')?.hasError('minlength') || newAdminUserForm.get('firstNameTs')?.hasError('maxlength')">
+                                <small id="error" class="error form-text text-muted">* Minimal length is 2 and maximal
+                                    is 30.</small>
+                            </div>
+                            <div *ngIf="newAdminUserForm.get('firstNameTs')?.hasError('pattern')">
+                                <small id="error" class="error form-text text-muted">* Must be a name that starts with capital leter.</small>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <input type="text" class="form-control" id="lastname" aria-describedby="lastname"
+                                formControlName="lastNameTs" placeholder="last name">
+                            <div
+                                *ngIf="newAdminUserForm?.get('lastNameTs')?.hasError('required') && newAdminUserForm?.get('lastNameTs')?.dirty">
+                                <small id="error" class="error form-text text-muted">*Can't be empty.</small>
+                            </div>
+                            <div
+                                *ngIf="newAdminUserForm.get('lastNameTs')?.hasError('minlength') || newAdminUserForm.get('lastNameTs')?.hasError('maxlength')">
+                                <small id="error" class="error form-text text-muted">* Minimal length is 2 and maximal
+                                    is 30.</small>
+                            </div>
+                            <div *ngIf="newAdminUserForm.get('lastNameTs')?.hasError('pattern')">
+                                <small id="error" class="error form-text text-muted">* Must be a last name that starts with capital letter.</small>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <input type="email" class="form-control" id="email" aria-describedby="email"
+                                formControlName="emailTs" placeholder="email">
+                            <div
+                                *ngIf="newAdminUserForm?.get('emailTs')?.hasError('required') && newAdminUserForm?.get('emailTs')?.dirty">
+                                <small id="error" class="error form-text text-muted">*Can't be empty.</small>
+                            </div>
+                            <div
+                                *ngIf="newAdminUserForm.get('emailTs')?.hasError('email') || newAdminUserForm.get('emailTs')?.hasError('pattern')">
+                                <small id="error" class="error form-text text-muted">* Must be a valid email.</small>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <input type="password" class="form-control" id="password" aria-describedby="password"
+                                formControlName="passwordTs" placeholder="password">
+                            <div
+                                *ngIf="newAdminUserForm?.get('passwordTs')?.hasError('required') && newAdminUserForm?.get('passwordTs')?.dirty">
+                                <small id="error" class="error form-text text-muted">*Can't be empty.</small>
+                            </div>
+                            <div
+                                *ngIf="newAdminUserForm.get('passwordTs')?.hasError('minlength') || newAdminUserForm.get('passwordTs')?.hasError('maxlength')">
+                                <small id="error" class="error form-text text-muted">* Must be between 8 and 30
+                                    characters..</small>
+                            </div>
+                            <div *ngIf="newAdminUserForm.get('passwordTs')?.hasError('pattern')">
+                                <small id="error" class="error form-text text-muted">* Must have at least one capital
+                                    letter, number and special character.</small>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4 ps-2">
+                            <ng-container *ngFor="let role of existingRoles">
+                                <div class="form-check form-check-inline me-5">
+                                    <input class="form-check-input" type="checkbox" [id]="role.id"
+                                        [formControlName]="role.name" />
+                                    <label class="form-check-label" for="inlineCheckbox1">{{role.name | titlecase}}
+                                        role</label>
+                                </div>
+                            </ng-container>
+                            <div *ngIf="newAdminUserForm.get('admin')?.value==false">
+                                <small id="error" class="error form-text text-muted">* Admin role is required.</small>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <div class="buttonDiv text-end mt-3">
+                                <button class="btn btn-secondary" (click)="createUser()"
+                                    [disabled]="this.newAdminUserForm.invalid || (!this.newAdminUserForm.invalid && !this.newAdminUserForm.dirty) || (!this.newAdminUserForm.invalid && this.newAdminUserForm.get('admin')?.value==false)">create
+                                    user</button>
+                            </div>
+                        </div>
+                        <div *ngIf="message!=''">
+                            <small class="errorMessage text-start ps-4"> {{message}}</small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

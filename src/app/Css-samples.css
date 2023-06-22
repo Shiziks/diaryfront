@@ -1,0 +1,13 @@
+/* APPLE CARDS */
+.card{
+    box-shadow: 2px 4px 12px rgb(0 0 0 / 8%);
+    transition: all .3s cubic-bezier(0,0,.5,1);
+}
+
+.card1{
+    transition: all .3s ease-in-out; 
+}
+.card1:hover{
+    box-shadow:2px 4px 16px rgba(0,0,0,.16);
+    transform:scale3d(1.01,1.01,1.01)
+}

@@ -1,0 +1,109 @@
+<div class="card p-5" #formView>
+  <div class="card-title text-center">
+    <h1>Manage quotes:</h1>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12">
+        <form [formGroup]="quoteForm">
+          <div class="card-subtitle mb-3">{{subtitle}}</div>
+          <div class="form-check form-switch mt-3 mb-2" *ngIf="!addNewBool">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" (click)="addNew()">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Add new quote</label>
+          </div>
+          <div class="form-group">
+
+            <input type="text" class="form-control" id="newQuote" aria-describedby="emailHelp"
+              [placeholder]="textPlaceholder" formControlName="textTs">
+            <div *ngIf="quoteForm.get('textTs')?.hasError('required') && quoteForm.get('textTs')?.touched">
+              <small id="quoteError" class="error form-text text-muted">* Quote text is required.</small>
+            </div>
+            <div *ngIf="quoteForm.get('textTs')?.hasError('minlength')">
+              <small id="quoteError" class="error form-text text-muted">* Minimal length of the quote is 5
+                characters.</small>
+            </div>
+            <div *ngIf="quoteForm.get('textTs')?.hasError('maxlength')">
+              <small id="quoteError" class="error form-text text-muted">* Maximal length of the quote is 100
+                characters.</small>
+            </div>
+            <div *ngIf="quoteForm.get('textTs')?.hasError('pattern')">
+              <small id="quoteError" class="error form-text text-muted">* Must be words and not only numbers or special
+                characters and it must end with full stop.</small>
+            </div>
+
+
+            <input type="text" class="form-control mt-3" id="quoteAuthor" [placeholder]="authorPlaceholder"
+              formControlName="authorTs">
+            <div *ngIf="quoteForm.get('authorTs')?.hasError('minlength')">
+              <small id="authorError" class="error form-text text-muted" *ngIf="!quoteError">* Must be at least 2
+                characters long.</small>
+            </div>
+            <div *ngIf="quoteForm.get('authorTs')?.hasError('maxlength')">
+              <small id="authorError" class="error form-text text-muted" *ngIf="!quoteError">* Must be up to 35
+                characters long.</small>
+            </div>
+            <div *ngIf="quoteForm.get('authorTs')?.hasError('pattern')">
+              <small id="authorError" class="error form-text text-muted" *ngIf="!quoteError">* Can have 2 or more names
+                that start with capital letter.</small>
+            </div>
+            <input type="hidden" class="form-control mt-3" id="quoteId" formControlName="quoteIdTs" value="0">
+
+
+
+          </div>
+          <div class="buttonDiv text-end mt-3">
+            <button class="btn btn-secondary" (click)="addQuote()"
+              [disabled]="this.quoteForm.invalid || (!this.quoteForm.invalid && !this.quoteForm.dirty) ">{{buttonText}}</button>
+          </div>
+          <div class="error text-end mt-2" *ngIf="quoteError">
+            <small id="authorError" class="error form-text text-muted text-end">Something went wrong. Please reload and
+              try again later.</small>
+          </div>
+          <div class="success text-start mt-2 ms-2" *ngIf="successMessage">
+            <small id="success" class="success form-text text-start">Quote saved.</small>
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+    <div class="row mt-4 border-top pt-2">
+      <div class="col-12">
+        <div class="subtitle mt-2 mb-3">
+          All Quotes:
+        </div>
+        <mat-paginator #paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize"
+          [showFirstLastButtons]="true" [pageSizeOptions]="[10, 15, 20]">
+        </mat-paginator>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" class="first align-middle">#</th>
+              <th scope="col" class="first align-middle">Quote:</th>
+              <th scope="col" class="first align-middle">Author:</th>
+              <th scope="col" class="first align-middle">Edit</th>
+              <th scope="col" class="first align-middle">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container
+              *ngFor="let quote of allQuotes|slice:(paginator.pageIndex*paginator.pageSize):((paginator.pageIndex+1)*paginator.pageSize); let i=index">
+              <tr>
+                <th scope="row" class="align-middle">{{(paginator.pageIndex*paginator.pageSize)+(i+1)}}</th>
+                <td class="align-middle" id="{{quote.id}}" #quoteInfo>"{{quote.quote_text}}"</td>
+                <td class="align-middle"> {{quote.quote_author}} </td>
+                <td class="align-middle text-center editIcon" (click)="editQuote(quote)" [scrollTo]="formView">
+                  <fa-icon [icon]="faPen"></fa-icon>
+                </td>
+                <td class="align-middle text-center editIcon" (click)="deleteQuote(quoteInfo)">
+                  X
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

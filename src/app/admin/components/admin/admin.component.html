@@ -1,0 +1,54 @@
+<div class="container mx-auto mt-5">
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <div class="list-group">
+
+                <button class="list-group-item list-group-item-action" value="welcomeImage"
+                    [ngClass]="{'active': url === '/admin/admin/welcomeimage'||url === '/admin/admin'|| url==='/admin/welcomeimage'}" #carouselImage
+                    aria-current="true" (click)="activeElement(carouselImage)" routerLink="admin">
+                    Welcome image
+                </button>
+
+                <button class="list-group-item list-group-item-action"
+                    [ngClass]="{'active': url === '/admin/admin/profileadminsettings' || url === '/admin/profileadminsettings'}" #profilesettings
+                    (click)="activeElement(profilesettings)" routerLink="profileadminsettings">Profile Settings</button>
+
+                <button class="list-group-item list-group-item-action"
+                    [ngClass]="{'active': url === '/admin/admin/quotes' || url === '/admin/quotes'}" #quote (click)="activeElement(quote)"
+                    routerLink="quotes">Quotes</button>
+
+                <button class="list-group-item list-group-item-action"
+                    [ngClass]="{'active': url === '/admin/admin/affirmations' || url === '/admin/affirmations'}" #affirmations
+                    (click)="activeElement(affirmations)" routerLink="affirmations">Affirmations</button>
+
+                <button class="list-group-item list-group-item-action"
+                    [ngClass]="{'active': url === '/admin/admin/moods' || url === '/admin/moods' }" #moods (click)="activeElement(moods)"
+                    routerLink="moods">Moods</button>
+
+                <button class="list-group-item list-group-item-action"
+                    [ngClass]="{'active': url === '/admin/admin/energies' || url === '/admin/energies'}" #energies (click)="activeElement(energies)"
+                    routerLink="energies">Energies</button>
+
+                <button class="list-group-item list-group-item-action"
+                    [ngClass]="{'active': url === '/admin/admin/waters' || url === '/admin/waters'}" #waters (click)="activeElement(waters)"
+                    routerLink="waters">Waters</button>
+
+                <button class="list-group-item list-group-item-action"
+                    [ngClass]="{'active': url === '/admin/admin/sleep' || url === '/admin/sleep'}" #sleep (click)="activeElement(sleep)"
+                    routerLink="sleep">Sleep</button>
+
+                <button class="list-group-item list-group-item-action"
+                    [ngClass]="{'active': url === '/admin/admin/activity' || url === '/admin/activity'}" #activity (click)="activeElement(activity)"
+                    routerLink="activity">Activity</button>
+
+                <button class="list-group-item list-group-item-action"
+                    [ngClass]="{'active': url === '/admin/admin/makeadmin' || url === '/admin/makeadmin'}" #makeadmin
+                    (click)="activeElement(makeadmin)" routerLink="makeadmin">Make admin user</button>
+
+            </div>
+        </div>
+        <div class="col-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

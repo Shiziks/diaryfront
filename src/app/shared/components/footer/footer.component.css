@@ -1,0 +1,33 @@
+.first,
+.second,
+.links {
+    color: rgba(118, 123, 145, 0.8);
+}
+
+.footerLogo {
+    max-height: auto;
+    width: 33%;
+}
+
+@media only screen and (max-width: 768px) {
+
+    footer .noclass,
+    footer .noclasslist {
+        margin: 0 auto !important;
+        display: flex;
+        justify-content: center !important;
+        width: 100%;
+    }
+
+    footer a img.footerLogo {
+        margin: 5% auto 0;
+        max-height: auto;
+        width: 40%;
+
+    }
+}
+
+.noclasslist {
+    right: 0;
+    float: right;
+}

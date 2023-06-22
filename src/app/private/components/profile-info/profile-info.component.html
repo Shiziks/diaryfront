@@ -1,0 +1,84 @@
+<div class="container text-center">
+    <div class="title mt-5"> Profile Info</div>
+    <div class="subtitle mt-3">
+        Here you can change your personal info.
+    </div>
+    <form [formGroup]="editInfoForm" class="mt-5 mb-5">
+        <div class="inputs text-start mb-4">
+            <input type="text" class="form-control " formControlName='firstNameTs' />
+            <!-- ERRORS ERRORS ERRORS ERRORS ERRORS -->
+            <p class="error ps-2" *ngIf="editInfoForm.get('firstNameTs')?.hasError('required')">
+                * You can not delete your name.
+            </p>
+            <p class="error ps-2" *ngIf="editInfoForm.get('firstNameTs')?.hasError('minlength')">
+                * Your name must be at least 2 characters long.
+            </p>
+            <!-- ------------------------------------------------------------------------------- -->
+            <p class="error ps-2" *ngIf="editInfoForm.get('firstNameTs')?.hasError('pattern')">
+                * You can insert maximum 3 first names, that start with capital letter.
+            </p>
+        </div>
+        <div class="inputs text-start mb-4">
+            <input type="text" class="form-control" formControlName='lastNameTs' />
+            <p class="error ps-2" *ngIf="editInfoForm.get('lastNameTs')?.hasError('required')">
+                You can not delete your last name.
+            </p>
+            <p class="error ps-2" *ngIf="editInfoForm.get('lastNameTs')?.hasError('minlength')">
+                Your last name must be at least 2 characters long.
+            </p>
+            <p class="error ps-2" *ngIf="editInfoForm.get('lastNameTs')?.hasError('pattern')">
+                * You can insert maximum 3 last names, that start with capital letter.
+            </p>
+        </div>
+
+        <div class="input-group">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="m" formControlName='genderTs'>
+                <label class="form-check-label" for="inlineRadio1">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="f" formControlName='genderTs'>
+                <label class="form-check-label" for="inlineRadio2">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="o" formControlName='genderTs'>
+                <label class="form-check-label" for="inlineRadio2">Other</label>
+            </div>
+        </div>
+        <p class="error ps-2 text-start" *ngIf="editInfoForm.get('genderTs')?.hasError('required')">
+            * Please select a gender.
+        </p>
+
+
+
+        <div class="inputs text-start mb-4 mt-4">
+            <input type="date" class="form-control" formControlName='birthDateTs' />
+            <p class="error ps-2" *ngIf="editInfoForm.get('birthDateTs')?.hasError('required')">
+                * Birthdate can't be empty.
+            </p>
+        </div>
+        <div class="inputs text-start mb-5">
+            <input type="email" class="form-control mb-1" formControlName='emailTs' />
+            <!-- ERROR ERROR ERROR ERROR ERROR -->
+            <p class="error ps-2" *ngIf="editInfoForm.get('emailTs')?.hasError('required')">
+                * Email can't be empty.
+            </p>
+            <p class="error ps-2"
+                *ngIf="editInfoForm.get('emailTs')?.hasError('email') || editInfoForm.get('emailTs')?.hasError('pattern')">
+                * Must be a valid email address.
+            </p>
+        </div>
+        <button class="btn btn-secondary w-100"
+            [disabled]="editInfoForm.invalid ||(editInfoForm.invalid && !editInfoForm.touched) || (editInfoForm.valid && !editInfoForm.touched) "
+            (click)="editUserInfo()">Save Changes</button>
+        <div class="message text-center mt-3">
+            <small class="successMessage" *ngIf="successMessage">
+                Your personal info is updated.
+            </small>
+            <small class="errorMessage" *ngIf="errorMessage">
+                !!! Ooops, we encountered an error. Please reload and try again.
+            </small>
+        </div>
+    </form>
+
+</div>

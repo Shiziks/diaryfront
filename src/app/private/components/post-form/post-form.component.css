@@ -1,0 +1,200 @@
+.card {
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.30) 0px 25px 20px -20px;
+  color: rgba(118, 123, 145, 0.8);
+  font-family: 'poppins-regular';
+  border: none;
+  min-height: 440px;
+}
+
+.card-header {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: transparent;
+  border: none;
+}
+
+.card-header button.close {
+  color: #F6BB8E;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'montserrat-bold';
+  border: none;
+  padding: 0px;
+  margin-bottom: 0px !important;
+  transition: all .3s ease-in-out;
+}
+
+.card-header button.close:hover {
+  /* text-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; */
+  transform: scale3d(1.2, 1.2, 1.2);
+  color: #E0A893;
+}
+
+.card-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0px;
+  font-family: 'poppins-bold';
+  color: rgba(118, 123, 145, 1);
+}
+
+.card-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  /* font-style: italic; */
+  font-family: 'poppins-regular';
+  color: rgba(118, 123, 145, 0.8) !important;
+}
+
+form {
+  margin: 0 auto;
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+}
+
+div.form-group {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.form-control:focus,
+input:focus,
+input:active {
+  outline: none !important;
+  outline-color: transparent !important;
+  outline-style: none !important;
+  box-shadow: none;
+  border: 1px solid rgba(118, 123, 145, 0.5);
+}
+
+.form-control:focus::placeholder {
+  color: rgba(118, 123, 145, 0.5) !important;
+}
+
+input::placeholder {
+  color: rgba(118, 123, 145, 0.8) !important;
+}
+
+textarea::placeholder {
+  color: rgba(118, 123, 145, 0.8) !important;
+}
+
+.form-group.button {
+  transition: all .3s ease-in-out;
+}
+
+.form-group.button:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  transform: scale3d(1.01, 1.01, 1.01);
+}
+
+button.btn.btn-secondary:hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+button.btn-secondary {
+  width: 100%;
+  background-color: rgba(118, 123, 145, 0.8) !important;
+  border: none;
+  text-transform: lowercase;
+}
+
+button:disabled,
+button[disabled] {
+  background-color: rgba(118, 123, 145, 0.2) !important;
+  pointer-events: none;
+  color: white !important;
+}
+
+label.text-muted {
+  color: rgba(118, 123, 145, 0.8) !important;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(118, 123, 145, 0.6) !important;
+  border: 1px solid lightgray;
+  border-radius: 0px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-transform: lowercase;
+  color: white;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+  color: rgba(118, 123, 145, 0.8) !important;
+}
+
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+.alert {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.message {
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 5%;
+  right: 3%;
+}
+
+.message p {
+  margin-top: 0%;
+  margin-bottom: 0;
+}
+
+.message p button {
+  text-decoration: none;
+}
+
+p button fa-icon {
+  font-size: 1.5em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.link-secondary {
+  font-family: 'poppins-regular';
+  color: rgba(118, 123, 145, 0.8) !important;
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: lowercase;
+  font-size: 0.9rem;
+  padding: 0px 8%;
+  border-radius: 1em 0 1em 0;
+  background-image: linear-gradient(-100deg,
+      rgba(254, 250, 238, 0.4),
+      rgba(246, 187, 142, 0.7) 95%,
+      rgba(254, 250, 238, 0.2));
+}
+
+.text-danger {
+  color: #F6BB8E !important;
+}
+
+input,
+input:focus,
+textarea,
+textarea:focus {
+  color: rgba(118, 123, 145, 0.8);
+}

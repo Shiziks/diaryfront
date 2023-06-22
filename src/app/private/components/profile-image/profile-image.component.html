@@ -1,0 +1,51 @@
+<div class="container text-center">
+    <div class="title mt-5"> Profile Image</div>
+    <div class="subtitle mt-3 mb-5">
+        Here you can change your profile image.
+    </div>
+    <div class="lastImage mb-5 row">
+        <div class="col-9 profilePhoto">
+            <img src='http://127.0.0.1:8000/{{profileImage?.file_path}}' id="{{profileImage?.id}}" alt=""
+                class="card-image img-fluid rounded" #pPhoto attr.data-profile="{{profileImage?.profile}}"
+                [name]=profileImage?.file_name [hidden]="!profileImage" />
+            <img src="../../../../assets/images/user_placeholder.png" id="dummyImage"
+                alt="Dummy Profile Photo No Gender" #pPhoto [hidden]="profileImage" />
+        </div>
+        <div class="col-3 vstack gap-3 align-self-end">
+            <form>
+                <div class="add-image buttons btn btn-secondary mb-3"
+                    [class]="imagesLength>=5? 'disabledClass': 'noClass'">
+
+                    <input type="file" [disabled]="imagesLength>=5" title="" (change)="addPhoto($event)" />
+                    <span class="text-center spanFile" role="button">Add photo</span>
+                </div>
+                <button class="buttons btn btn-secondary mb-3" (click)="makeProfilePhoto(pPhoto)"
+                    [disabled]="!profileImage"> Profile photo</button>
+                <button class="buttons btn btn-secondary mb-2" (click)="deletePhoto(pPhoto)" [disabled]="!profileImage">
+                    Delete photo</button>
+            </form>
+        </div>
+    </div>
+    <div class="otherImages row g-3 mb-3">
+        <ng-container *ngFor="let image of images">
+            <div class="col-sm-3 imagesRow" (click)="focusImage(photo)">
+                <img src='http://127.0.0.1:8000/{{image.file_path}}' alt="" [id]=image.id #photo
+                    class="card-image img-fluid rounded" attr.data-profile="{{image.profile}}" [name]=image.file_name>
+            </div>
+        </ng-container>
+    </div>
+    <div class="helperText mb-5 text-start">
+        <small *ngIf="imagesLength==5"> You can store up to 5 images. To adda new one, first delete some.</small>
+        <small class="error" *ngIf="errorMessage.length>0">
+            <ul>
+                <ng-container *ngFor="let er of errorMessage">
+                    <li>
+                        * {{er}}
+                    </li>
+                </ng-container>
+            </ul>
+        </small>
+        <small *ngIf="!profileImage" class="error"> Please add your first profile image by clicking on the ADD PHOTO
+            button.</small>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+.card {
+    border: none;
+    box-shadow: rgb(0 0 0 / 30%) 0px 25px 20px -20px;
+    color: rgba(118, 123, 145, 0.8);
+    font-family: 'poppins-regular';
+}
+
+.card-title h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0px;
+    font-family: 'poppins-bold';
+    color: rgba(118, 123, 145, 1);
+}
+
+.card-subtitle,
+.subtitle {
+    font-size: 1.35rem;
+    font-weight: 500;
+    font-family: 'poppins-semibold';
+    color: rgba(118, 123, 145, 0.8) !important;
+}
+
+
+table {
+    color: rgba(118, 123, 145, 0.8);
+}
+
+th.first {
+    background-color: rgba(245, 187, 142, 0.4);
+    color: rgba(118, 123, 145, 0.8);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'poppins-semibold';
+    border-bottom: none;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+table>tbody>tr:hover {
+    background-color: #f2f4f8;
+}
+
+tr>td:last-of-type {
+    font-family: 'poppins-semibold';
+    color: #F5BB8E;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: all .3s ease-in-out;
+}
+
+td.align-middle.text-center:hover {
+    font-size: 1.2rem;
+    color: #f2a469;
+
+}
+
+.tableicon {
+    font-size: x-large;
+    color: rgba(118, 123, 145, 0.5);
+}
+
+input {
+    color: rgba(118, 123, 145, 0.8);
+}
+
+input::placeholder {
+    color: rgba(118, 123, 145, 0.8);
+}
+
+input:active,
+input:focus {
+    color: rgba(118, 123, 145, 0.8);
+    outline: none !important;
+    outline-color: transparent !important;
+    outline-style: none !important;
+    box-shadow: none;
+    border: 1px solid rgba(118, 123, 145, 0.5);
+    background-color: transparent;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input[data-autocompleted] {
+    background-color: transparent !important;
+}
+
+input.form-check-input,
+input.form-check-input:focus {
+    background-color: white;
+    border-color: rgba(118, 123, 145, 0.4);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3.75' fill='rgba(245, 187, 142,1)'/></svg>");
+}
+
+input.form-check-input:checked {
+    background-color: rgba(245, 187, 142, 0.5);
+    border-color: rgba(118, 123, 145, 0.4);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3.75' fill='rgba(118, 123, 145,0.7)'/></svg>");
+}
+
+small.error {
+    padding-left: 7px;
+    color: #f2a469 !important;
+}
+
+.btn.btn-secondary {
+    width: 100%;
+    background-color: rgba(118, 123, 145, 0.6) !important;
+    border: none;
+    text-transform: lowercase;
+}
+
+.btn.btn-secondary:disabled {
+    background-color: rgba(118, 123, 145, 0.3) !important;
+}
+
+.moodIcon {
+    font-size: xxx-large;
+}
+
+.moodIcon.active,
+.activeIcon {
+    color: #F5BB8E;
+}
+
+small.success {
+    color: rgba(118, 123, 145, 0.8);
+    font-family: 'poppins-regular';
+}
+
+.clickable,
+.editIcon {
+    cursor: pointer;
+}
+
+.notclickable,
+.inactiveIcons {
+    color: rgba(118, 123, 145, 0.2);
+    /* color:#f2a46958; */
+}

@@ -1,0 +1,28 @@
+<div class="container mt-5 mb-5" [ngClass]="{ 'right-panel-active':register}" id="container" #container>
+  <div class="form-container sign-in-container text-center">
+    <app-login></app-login>
+  </div>
+
+  <!-- REGISTER REGISTER REGISTER REGISTER REGISTER -->
+  <div class="form-container sign-up-container">
+    <app-register [registerClicked]="registerClicked"></app-register>
+  </div>
+
+  <!-- OVERLAY OVERLAY OVERLAY OVERLAY -->
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Hello, there!</h1>
+        <p>You are one step closer to enhancing your producivity and mindfulness and creating better habits. To start
+          your journey today:</p>
+        <button (click)="showRegister()" class="ghost">Create an account</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Welcome Back!</h1>
+        <p>To keep connected with us please login with your personal info</p>
+        <button (click)="showLogin()" class="ghost">Log in</button>
+      </div>
+    </div>
+  </div>
+
+</div>

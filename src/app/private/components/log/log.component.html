@@ -1,0 +1,37 @@
+<div class="card text-center">
+  <div class="card-header text-end">
+    <button type="button" class="btn btn-link close mt-2 mb-2" aria-label="Close" (click)="disableIt()" #data>X</button>
+  </div>
+
+  <div class="card-body">
+    <p class="card-title">{{ title }}</p>
+    <p class="card-subtitle text-muted mt-3 mb-3">{{ subtitle }}</p>
+    <div class="row icons mt-4 mb-2 text-center">
+      <ng-container *ngIf="mood; else energylog">
+        <ng-container *ngFor="let r of res; let i=index">
+          <div class="col text-center">
+            <a (click)="onClick(r.id)" [className]="r.id==currentmood_id?'currentMood':'noClass'">
+              <fa-icon [icon]="r.icon" class="faicon"></fa-icon>
+              <p>{{ r.mood_name || r.energy_name }}</p>
+            </a>
+          </div>
+        </ng-container>
+      </ng-container>
+      <ng-template #energylog>
+        <ng-container *ngFor="let r of res; let i=index">
+          <div class="col text-center">
+            <a (click)="onClick(r.id)" [className]="r.id==currentenergy_id?'currentMood':'noClass'" id={{r.id}}>
+              <fa-icon [icon]="[r.icon_prefix, r.icon]" class="faicon"></fa-icon>
+              <p>{{ r.energy_name }}</p>
+            </a>
+          </div>
+        </ng-container>
+      </ng-template>
+    </div>
+    <ng-container>
+      <p class="buttonLink text-end">
+        <button class="btn btn-link link-secondary" (click)="showMoods(mood, energy)" value="">{{linkText}} </button>
+      </p>
+    </ng-container>
+  </div>
+</div>

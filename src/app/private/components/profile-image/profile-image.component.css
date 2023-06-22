@@ -1,0 +1,132 @@
+.container {
+    width: 90%;
+}
+
+.title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 0px;
+    font-family: 'poppins-semibold';
+    color: #767b91cc;
+    line-height: 120%;
+}
+
+.subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0px;
+    font-family: 'poppins-regular';
+    color: rgba(118, 123, 145, 0.6);
+    line-height: 120%;
+}
+
+.profilePhoto {
+    overflow: hidden;
+    position: relative;
+    padding: 0px;
+}
+
+.profilePhoto img {
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: cover;
+}
+
+.imagesRow {
+    overflow: hidden;
+    position: relative;
+    padding: 0px;
+    width: calc(100%/4);
+}
+
+.imagesRow img {
+    cursor: pointer;
+    max-width: 95%;
+    max-height: 22vh;
+    object-fit: cover;
+    padding: 2%;
+}
+
+.helperText {
+    color: rgba(118, 123, 145, 0.6);
+}
+
+.buttons {
+    width: 100%;
+    background-color: rgba(225, 229, 238, 0.6);
+    color: rgba(118, 123, 145, 0.5) !important;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    font-size: 0.9rem;
+}
+
+button:hover {
+    /* background-color: rgba(118, 123, 145, 0.4) ; */
+    transition: all .3s ease-in-out;
+    color: rgba(118, 123, 145, 0.7);
+}
+
+button:active {
+    /* background-color: rgba(118, 123, 145, 0.4) ; */
+    transition: all .3s ease-in-out;
+    color: rgba(118, 123, 145, 0.7);
+    background-color: white;
+}
+
+button:disabled {
+    background-color: rgba(118, 123, 145, 0.3);
+    border: 0px;
+    color: white !important;
+}
+
+.disabledClass {
+    width: 100%;
+    background-color: rgba(225, 229, 238, 0.6);
+    color: white !important;
+    border: none;
+    /* transition: all .3s ease-in-out; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    font-size: 0.9rem;
+    pointer-events: none;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+input[type="file"] {
+    opacity: 0;
+    cursor: pointer !important;
+    color: transparent;
+    background-color: transparent;
+    width: 100%;
+}
+
+.add-image {
+    display: grid;
+    padding-bottom: 0;
+    cursor: pointer;
+}
+
+.add-image:active {
+    transition: all .3s ease-in-out;
+    color: rgba(118, 123, 145, 0.7);
+    background-color: white;
+    cursor: pointer;
+}
+
+.add-image span {
+    grid-column: 1;
+    grid-row: 1;
+    cursor: pointer;
+}
+
+.add-image input {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+small ul li {
+    list-style-type: none;
+    color: #F5BB8E;
+}

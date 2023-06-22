@@ -1,0 +1,98 @@
+<div class="card p-5">
+    <div class="card-title text-center">
+        <h1>Manage energies:</h1>
+    </div>
+    <div class="card-body mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-subtitle mb-3">{{subtitle}}</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="first align-middle">#</th>
+                            <th scope="col" class="first align-middle">Energy:</th>
+                            <th scope="col" class="first align-middle">Icon:</th>
+                            <th scope="col" class="first align-middle text-center">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let energy of allEnergies; let i=index">
+                            <tr>
+                                <th scope="row" class="align-middle">{{i+1}}</th>
+                                <td class="align-middle" id="{{energy.id}}" #energyInfo>{{energy.energy_name}}</td>
+                                <td class="align-middle" id="{{energy.id}}" #energyIcon><fa-icon class="me-2 iconTable"
+                                        [icon]="[energy.icon_prefix,energy.icon]"></fa-icon> {{energy.icon}}</td>
+                                <td class="align-middle text-center editIcon" (click)="editEnergy(energyInfo)"
+                                    [scrollTo]="formView">
+                                    <fa-icon [icon]="faPen"></fa-icon>
+                                </td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row pt-2" #formView>
+            <div class="col-12 mt-4" *ngIf="showIcons">
+                <div class="card-subtitle mb-3">{{subtitle1}}</div>
+                <form [formGroup]="energyForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="newQuote" aria-describedby="emailHelp"
+                            formControlName="energyTs">
+                        <div
+                            *ngIf="energyForm?.get('energyTs')?.hasError('required') && energyForm?.get('energyTs')?.dirty">
+                            <small id="quoteError" class="error form-text text-muted">* Energy level is
+                                required.</small>
+                        </div>
+                        <div
+                            *ngIf="energyForm.get('energyTs')?.hasError('minlength') || energyForm.get('energyTs')?.hasError('maxlength')">
+                            <small id="quoteError" class="error form-text text-muted">* Minimal length is 2 and maximal
+                                is 10.</small>
+                        </div>
+                        <div *ngIf="energyForm.get('energyTs')?.hasError('pattern')">
+                            <small id="quoteError" class="error form-text text-muted">* Must be a small letter word and
+                                not numbers or any characters.</small>
+                        </div>
+                    </div>
+                    <div class="text-start mb-2 mt-4">
+                        <span>
+                            <fa-icon icon="square" class="ms-3"></fa-icon> Available icons
+                            <fa-icon icon="square" class="activeIcon ms-3"></fa-icon> Currently used icons
+                        </span>
+                    </div>
+                    <div class="row mt-4 mb-4 text-center d-flex align-items-center justify-content-center">
+                        <div class="col-2">
+                            <input (click)="pickNewIcon(1)" class="form-check-input" type="radio" name="radioNoLabel"
+                                id="radioNoLabel1" value="1" [checked]="activeIcons==1">
+                        </div>
+                        <ng-container *ngFor="let icon of batteryIcons; let i=index">
+                            <div class="col-2 moodIcon" id="{{i}}" [ngClass]="{'active': activeIcons==1}"> <fa-icon
+                                    [icon]="[icon.icon_prefix,icon.iconName]"></fa-icon></div>
+                        </ng-container>
+                    </div>
+                    <div class="row mt-4 mb-4 text-center align-items-center d-flex justify-content-center">
+                        <div class="col-2">
+                            <input (click)="pickNewIcon(2)" class="form-check-input" type="radio" name="radioNoLabel"
+                                id="radioNoLabel2" value="2" [checked]="activeIcons==2">
+                        </div>
+                        <ng-container *ngFor="let icon of starIcons; let i=index">
+                            <div class="col-2 moodIcon" id="{{i}}" [ngClass]="{'active': activeIcons==2}"> <fa-icon
+                                    [icon]="[icon.icon_prefix,icon.iconName]"></fa-icon></div>
+                        </ng-container>
+                    </div>
+                    <div class="buttonDiv text-end mt-3">
+                        <button class="btn btn-secondary" (click)="saveChanges()"
+                            [disabled]="this.energyForm.invalid ||  !this.energyForm.dirty && !this.iconChange">edit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="error text-end">
+                <small id="authorError" class="error form-text text-muted text-end" *ngIf="energyError">Something went
+                    wrong. Please reload the page and try again.</small>
+            </div>
+            <div class="success text-start">
+                <small class="success form-text text-start" *ngIf="successMessage">Changes saved.</small>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+<ng-container *ngIf="!isAuth">
+    <form [formGroup]="formRegister">
+        <h1 class="text-center">Sign Up</h1>
+        <span class="mt-2 mb-2 text-center">and start MeLog journey</span>
+        <div class="row w-100">
+            <div class="col-6 left">
+                <input type="text" placeholder="First Name" class='text' required formControlName="firstnameTs" />
+                <div *ngIf="formRegister.get('firstnameTs')?.hasError('required') && formRegister.get('firstnameTs')?.touched"
+                    class="errorMessage text-start">
+                    *Name is required.
+                </div>
+            </div>
+
+            <div class="col-6 right">
+                <input type="text" placeholder='Last Name' class='second' required formControlName="lastnameTs">
+                <div *ngIf="formRegister.get('lastnameTs')?.hasError('required') && formRegister.get('lastnameTs')?.touched"
+                    class="errorMessage text-start">
+                    *Lastname is required.
+                </div>
+            </div>
+            <div *ngIf="formRegister.get('firstnameTs')?.hasError('pattern') || formRegister.get('lastnameTs')?.hasError('pattern')" class="errorMessage col-12" >
+                *Name and surname must have between 2 and 30 characters. More names are allowed.
+            </div>
+            <!-- <div *ngIf="formRegister.get('lastnameTs')?.hasError('pattern')" class="errorMessage col-12">
+                *Lastname must have between 2 and 30 characters. More lastnames are allowed.
+            </div> -->
+
+
+        </div>
+        <div class="row w-100">
+            <div class="col-4">
+                <input type="radio" class="genderradio" formControlName="genderTs" value="f"> Femail
+            </div>
+            <div class="col-4">
+                <input type="radio" class="genderradio" formControlName="genderTs" value="m"> Male
+            </div>
+            <div class="col-4">
+                <input type='radio' class="genderradio" formControlName="genderTs" value="o">Other
+            </div>
+            <div *ngIf="formRegister.get('genderTs')?.hasError('required') && formRegister.get('genderTs')?.touched"
+                class="errorMessage col-12">
+                *Gender is required.
+            </div>
+            <div *ngIf="formRegister.get('genderTs')?.hasError('pattern')" class="errorMessage col-12">
+                *Invalid gender input.
+            </div>
+        </div>
+
+        <div class="col-12">
+            <input type="text" value="Birth Date" min="1920-01-01" max="2012-12-31" formControlName="dateTs"
+                placeholder="Birth Date" onfocus="(this.type='date')" onblur="(this.type='text')">
+        </div>
+
+        <div class="col-12">
+            <input type="email" placeholder="Email" class='second' required formControlName="emailTs" />
+            <div *ngIf="formRegister.get('emailTs')?.hasError('required') && formRegister.get('emailTs')?.touched"
+                class="errorMessage text-start">
+                *Email is required.
+            </div>
+            <div *ngIf="formRegister.get('emailTs')?.hasError('pattern') || formRegister.get('emailTs')?.hasError('email')"
+                class="errorMessage text-start">
+                *Must be a valid email address.
+            </div>
+
+        </div>
+
+
+        <div class="row w-100">
+            <div class="col-6 left">
+                <input type="password" placeholder='Enter password' class='second ' formControlName="passwordTs">
+
+
+            </div>
+            <div class="col-6 right">
+                <input type="password" placeholder='Repeate password' class='password ' formControlName="password1Ts">
+
+            </div>
+            <!-- <div *ngIf="formRegister.get('password1Ts')?.hasError('required') && formRegister.get('password1Ts')?.touched"
+                class="errorMessage text-start col-12">
+                *Password is required.
+            </div> -->
+            <div *ngIf="formRegister.get('passwordTs')?.hasError('required') && formRegister.get('passwordTs')?.touched"
+                class="errorMessage text-start col-12">
+                *Password is required.
+            </div>
+            <div *ngIf="formRegister?.errors?.['equalValues'] && (formRegister.get('passwordTs')?.dirty && formRegister.get('password1Ts')?.dirty)"
+                class="errorMessage col-12">
+                *Passwords must be the same.
+            </div>
+            <div *ngIf="formRegister.get('passwordTs')?.hasError('pattern')" class="errorMessage col-12">
+                *Password must be between 8 and 30 characters with at least one capital letter, one number and one
+                special character.
+            </div>
+        </div>
+        <ng-container *ngIf="message; else showButton">
+            <div class="errorMessage pt-3 pb-3 fromServer text-center mt-1">{{message|uppercase}}</div>
+        </ng-container>
+        <ng-template #showButton>
+            <button class='btn btn-login xghost mt-3' (click)="register()"
+                [disabled]="!formRegister.valid || (formRegister.valid && formRegister.untouched)">Register</button>
+        </ng-template>
+    </form>
+</ng-container>

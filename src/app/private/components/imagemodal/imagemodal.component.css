@@ -1,0 +1,26 @@
+button.mat-button.btn-close {
+  color: white !important;
+}
+
+img.card-image.img-fluid {
+  max-width: 100%;
+}
+
+
+.mat-dialog-actions.mat-dialog-actions-align-end {
+  padding-top: 0px;
+}
+
+mat-dialog-container#mat-dialog-0.mat-dialog-container.cdk-dialog-container {
+  padding-top: 3px !important;
+}
+
+.close-button {
+  float: right;
+  top: -15px;
+  right: -10px;
+}
+
+.close-icon {
+  transition: 1s ease-in-out;
+}

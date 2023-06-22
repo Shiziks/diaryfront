@@ -1,0 +1,94 @@
+.card {
+    border: none;
+    box-shadow: rgb(0 0 0 / 30%) 0px 25px 20px -20px;
+    color: rgba(118, 123, 145, 0.8);
+    font-family: 'poppins-regular';
+}
+
+.card-title h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0px;
+    font-family: 'poppins-bold';
+    color: rgba(118, 123, 145, 1);
+}
+
+.card-subtitle,
+.subtitle {
+    font-size: 1.35rem;
+    font-weight: 500;
+    font-family: 'poppins-semibold';
+    color: rgba(118, 123, 145, 0.8) !important;
+}
+
+
+small.error {
+    padding-left: 7px;
+    color: #f2a469 !important;
+}
+
+.btn.btn-secondary {
+    width: 100%;
+    background-color: rgba(118, 123, 145, 0.6) !important;
+    border: none;
+    text-transform: lowercase;
+
+}
+
+.btn.btn-secondary:disabled {
+    background-color: rgba(118, 123, 145, 0.3) !important;
+}
+
+table {
+    color: rgba(118, 123, 145, 0.8);
+}
+
+th.first {
+    background-color: rgba(245, 187, 142, 0.4);
+    color: rgba(118, 123, 145, 0.8);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'poppins-semibold';
+    border-bottom: none;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+
+}
+
+
+
+table>tbody>tr:hover {
+    background-color: #f2f4f8;
+}
+
+
+
+tr>td:last-of-type,
+tr>td:nth-of-type(2) {
+    font-family: 'poppins-semibold';
+    color: #F5BB8E;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: all .3s ease-in-out;
+
+}
+
+td.align-middle.text-center:hover {
+    font-size: 1.2rem;
+    color: #f2a469;
+
+}
+
+
+.clickable,
+.editIcon {
+    cursor: pointer;
+}
+
+small.success {
+    color: rgba(118, 123, 145, 0.8);
+    font-family: 'poppins-regular';
+}
+
+fa-icon.iconDisabled {
+    color: rgba(118, 123, 145, 0.8);
+}

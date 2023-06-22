@@ -1,0 +1,106 @@
+<div class="card p-5">
+    <div class="card-title text-center">
+        <h1>Manage water glasses:</h1>
+    </div>
+    <div class="card-body mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-subtitle mb-3">{{subtitle}}</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="first align-middle">#</th>
+                            <th scope="col" class="first align-middle">Water glasses:</th>
+                            <th scope="col" class="first align-middle">Icon:</th>
+                            <th scope="col" class="first align-middle text-center">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let water of allWaters; let i=index">
+                            <tr>
+                                <th scope="row" class="align-middle">{{i+1}}</th>
+                                <td class="align-middle" id="{{water.id}}" #waterInfo>{{water.glass_number}}</td>
+                                <td class="align-middle" id="{{water.id}}" #waterInfo><fa-icon class="me-2 iconTable"
+                                        [icon]="water.icon"></fa-icon> {{water.icon}}</td>
+                                <td class="align-middle text-center editIcon" (click)="editWater(waterInfo)"
+                                    [scrollTo]="formView">
+                                    <fa-icon [icon]="faPen"></fa-icon>
+                                </td>
+                            </tr>
+                        </ng-container>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+        <div class="row pt-2" #formView>
+            <div class="col-12 mt-4" *ngIf="showIcons">
+                <div class="card-subtitle mb-3">{{subtitle1}}</div>
+                <form [formGroup]="waterForm">
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" id="newQuote" aria-describedby="emailHelp"
+                            formControlName="waterTs">
+                        <div
+                            *ngIf="waterForm?.get('waterTs')?.hasError('required') && waterForm?.get('waterTs')?.dirty">
+                            <small id="error" class="error form-text">* Can't be an empty string.</small>
+                        </div>
+                        <div
+                            *ngIf="waterForm.get('waterTs')?.hasError('minlength') || waterForm.get('waterTs')?.hasError('maxlength')">
+                            <small id="quoteError" class="error form-text text-muted">* Minimal length is 2 and maximal
+                                is 15.</small>
+                        </div>
+                        <div *ngIf="waterForm.get('waterTs')?.hasError('pattern')">
+                            <small id="quoteError" class="error form-text text-muted">* Must be a small letter word and
+                                not numbers or any characters.</small>
+                        </div>
+                    </div>
+                    <div class="row mt-4 mb-4 text-center">
+                        <div class="text-start mb-4">
+                            <span>
+                                <fa-icon icon="square" class="activeIcon ms-3"></fa-icon> Current mood icon
+                                <fa-icon icon="square" class="inactiveIcons ms-3"></fa-icon> Already used icons
+                                <fa-icon icon="square" class="ms-3"></fa-icon> Available icons
+                            </span>
+                        </div>
+
+                        <ng-container *ngFor="let icon of waterIcons; let i=index">
+                            <ng-container *ngIf="currentIcon.includes(icon); else clickable">
+                                <div class="col-3 moodIcon mb-3 notclickable" id="{{i}}"
+                                    [ngClass]="{'active': i===this.id}"><fa-icon [icon]="icon"></fa-icon></div>
+                            </ng-container>
+                            <ng-template #clickable>
+                                <div class="col-3 moodIcon mb-3 clickable" id="{{i}}" [ngClass]="{'active': i==id}"
+                                    (click)="pickNewIcon(icon, i)"> <fa-icon [icon]="icon"></fa-icon></div>
+                            </ng-template>
+                        </ng-container>
+                    </div>
+
+                    <div class="success text-start mt-3 ps-3">
+                        <small id="authorError" class="success form-text text-start">* Picking new icon will set it to
+                            all water glasses.</small>
+                    </div>
+
+                    <div class="buttonDiv text-end mt-1">
+                        <button class="btn btn-secondary" (click)="saveChanges()"
+                            [disabled]="this.waterForm.invalid || !this.waterForm.dirty && !this.iconChanged">edit</button>
+                    </div>
+
+
+                </form>
+
+            </div>
+            <div class="error text-end">
+                <small id="authorError" class="error form-text text-end" *ngIf="waterError">Something went wrong. Please
+                    reload the page and try again.</small>
+            </div>
+            <div class="success text-start">
+                <small id="authorError" class="success form-text text-start" *ngIf="successMessage">Changes
+                    saved.</small>
+            </div>
+        </div>
+
+    </div>
+</div>

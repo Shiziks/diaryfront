@@ -1,0 +1,92 @@
+.container {
+    width: 95%;
+    /* margin:0 auto; */
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.right-panel-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 0px;
+    font-family: 'poppins-semibold';
+    color: rgba(118, 123, 145, 0.8);
+    line-height: 120%;
+}
+
+.right-panel-subtitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0px;
+    font-family: 'poppins-regular';
+    color: rgba(118, 123, 145, 0.6);
+    line-height: 130%;
+}
+
+.form-switch{
+    padding:0em 0.6em 0em 0.6em;
+    display: flex;
+    justify-content: center;
+}
+
+.form-switch.form-switch-md .form-check-input {
+    height: 1.2rem;
+    width: calc(2rem + 0.75rem);
+    border-radius: 3rem;
+    margin:0px auto;
+    padding:0px;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border: none;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0px;
+    font-family: 'poppins-semibold';
+    color: rgba(118, 123, 145, 0.8);
+    line-height: 130%;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0px;
+    font-family: 'poppins-regular';
+    color: rgba(118, 123, 145, 0.8);
+    line-height: 120%;
+}
+
+.form-check-input:checked {
+    background-color: #F5BB8E;
+    border-color: #F5BB8E;
+}
+
+.form-check-input:checked:focus {
+    outline: none;
+    box-shadow: none;
+    border: #F5BB8E;
+}
+
+.form-check-input:checked:active {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.form-check-input:focus:not(:checked) {
+    box-shadow: none;
+    border-color: #C7CCDB;
+    color: #C7CCDB;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='lightgray'/%3e%3c/svg%3e") !important;
+}
+
+.col-4.text-start.ps-0.my-auto {
+    color: #F5BB8E;
+}

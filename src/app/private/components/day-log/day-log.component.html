@@ -1,0 +1,59 @@
+<div class="container border rounded text-center">
+    <div class="card-title mt-5">
+        Review your past days:
+    </div>
+    <div class="card-subtitle text-muted mt-3 mb-4">
+        <p>Take a look back at your day logs.</p>
+    </div>
+    <!-- OVDE KRECU KARTICE KAD IMA PODATAKA -->
+    <div class="red row row-cols-1 row-cols-md-3 gx-4" *ngIf="collection.length>0">
+        <ng-container *ngFor="let item of collection |paginate: { itemsPerPage: 6, currentPage: p }">
+
+            <div class="col text-start mb-4">
+                <div class="card h-100 kartica">
+                    <div class="card-body">
+                        <div class="bodytext">
+                            <div class="card-title mt-3 titlekartica">{{item!.title}}</div>
+                            <p class="card-subtitle text-muted mt-1 subtitlekartica">{{item.created_at|date:'MMMM d,
+                                y.'}}</p>
+                            <p class="card-text mt-3">
+                                {{(item.text.length>250)?((item.text|slice:0:250)+'...'):(item.text)}}</p>
+                        </div>
+                        <div class="image mt-3">
+                            <ng-container *ngIf="item.file_path">
+                                <img src='http://127.0.0.1:8000/{{item.file_path}}' class="card-img img-fluid"
+                                    alt="...">
+                            </ng-container>
+                        </div>
+
+                    </div>
+                    <div class="card-footer text-end mb-2">
+                        <button class="linkkartica btn btn-link" (click)="viewEditDayLog(item)">View / Edit</button>
+                    </div>
+                </div>
+            </div>
+
+        </ng-container>
+    </div>
+
+    <!-- UKOLIKO NEMA KARTICA OVO SE UCITAVA -->
+    <div class="red row noData" *ngIf="noData!=''">
+        <div class="col-12 noData message mb-5 mt-4">
+            {{noData}}
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-2 mb-2" *ngIf="collection.length>0">
+        <app-filter (filterValue)="getEmitedValue($event)" [collection]='allDayLogs'></app-filter>
+
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+    <div class="d-flex justify-content-end text-end mt-2 mb-2 mx-auto">
+        <div class="noData close mx-auto" [ngClass]="{'col-10': noData!='', 'col-12':noData==''}">
+            <button class="btn btn-link link-secondary" (click)="close()"> hide</button>
+        </div>
+    </div>
+
+
+
+</div>

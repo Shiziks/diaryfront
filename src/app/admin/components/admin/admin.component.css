@@ -1,0 +1,40 @@
+.container {
+    min-height: 90vh;
+}
+
+.list-group {
+    font-family: 'poppins-regular';
+    font-size: 1.05rem;
+    ;
+}
+
+button {
+    color: rgba(118, 123, 145, 1);
+    transition: all .3s ease-in-out;
+    border: none;
+
+}
+
+button:hover {
+    background-color: #eff1f6;
+    color: rgba(118, 123, 145, 0.8);
+    border: none;
+    transform: scale3d(1.01, 1.01, 1.01);
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+button.active:hover {
+    background-color: #F5BB8E;
+    border-color: #F5BB8E;
+    color: white;
+    font-weight: bolder;
+    transform: scale3d(1.01, 1.01, 1.01);
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+button.active {
+    background-color: #F5BB8E;
+    border-color: #F5BB8E;
+    transition: all .3s ease-in-out;
+
+}

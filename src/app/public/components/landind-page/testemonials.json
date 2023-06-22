@@ -1,0 +1,100 @@
+{
+  "testemonials": [
+    {
+      "title": "It's good",
+      "text": "It has all I needed from a diary app, and it is very easy to use. I enjoy it.",
+      "first_name": "Andrew",
+      "last_name": "Owen",
+      "anonymous": 0,
+      "path": "https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300"
+    },
+    {
+      "title": "Awesome",
+      "text": "I used a lot of diary apps in the past but I could't stick with any. This one is simple, easy to use and most of all fun. I love it.",
+      "first_name": "Erika",
+      "last_name": "Newman",
+      "anonymous": 0,
+      "path": "https://images.unsplash.com/photo-1549836938-d278c5d46d20?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=303&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=303"
+    },
+    {
+      "title": "Nothing special",
+      "text": "Nothing to say",
+      "first_name": "Otto",
+      "last_name": "Mex",
+      "anonymous": 1,
+      "path": null
+    },
+    {
+      "title": "Just alright",
+      "text": "It is ok, but nothing special. I love some features, others could be better.",
+      "first_name": "Sam",
+      "last_name": "Bush",
+      "anonymous": 0,
+      "path": "https://images.unsplash.com/photo-1588361035994-295e21daa761?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=301&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=301"
+    },
+    {
+      "title": "Revolutionary",
+      "text": "I love the ability to statistically review all my logs. It helped me a lot to manage and change my daily habits and it actually improved my life. I am grateful.",
+      "first_name": "Natalie",
+      "last_name": "Dot",
+      "anonymous": 0,
+      "path": "https://images.unsplash.com/photo-1575377222312-dd1a63a51638?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=302&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=302"
+    },
+    {
+      "title": "Love it",
+      "text": "Love it.",
+      "first_name": "Paula",
+      "last_name": "Bun",
+      "anonymous": 0,
+      "path": "https://images.unsplash.com/photo-1511945863317-d60e146e9016?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHw%3D&w=1000&q=80"
+    },
+    {
+      "title": "Simple and enjoyable",
+      "text": "I just love how simple and enjoyable it is.",
+      "first_name": "Ally",
+      "last_name": "Brown",
+      "anonymous": 0,
+      "path": "https://sb.kaleidousercontent.com/67418/1920x1282/7978bca0ba/christina-wocintechchat-com-50tkcap8m3a-unsplash.jpg"
+    },
+    {
+      "title": "Too simpe",
+      "text": "I find it too simple and I wish it had more features and could be connected with other apps so we could import our data , like Apple watch...",
+      "first_name": "Erik",
+      "last_name": "Down",
+      "anonymous": 0,
+      "path": "https://images.pexels.com/photos/428364/pexels-photo-428364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    },
+    {
+      "title": "Fine",
+      "text": "Nothing special about it",
+      "first_name": "Amy",
+      "last_name": "Teal",
+      "anonymous": 1,
+      "path": null
+    },
+    {
+      "title": "So-so",
+      "text": "Somefeatures are amazing, some I don't like. What I love about it is that you can disable any feture you don't like.",
+      "first_name": "Boby",
+      "last_name": "Forman",
+      "anonymous": 1,
+      "path": null
+    },
+    {
+      "title": "Good for me",
+      "text": "I find it good for me and my needs. Maybe not for everyone.",
+      "first_name": "Lilly",
+      "last_name": "Chin",
+      "anonymous": 0,
+      "path": "https://media.istockphoto.com/id/1150742429/photo/asian-girl-taking-a-selfie-in-rain.jpg?b=1&s=170667a&w=0&k=20&c=f0hgnybRP0zG6qDRw4g8QPnT1LHrJBRsJhw4hs5iXzU="
+    },
+    {
+      "title": "Need more",
+      "text": "I love how it looks and how easy to use it is, but I wanted more from a diary app.",
+      "first_name": "Badu",
+      "last_name": "Hugo",
+      "anonymous": 0,
+      "path": "https://media.istockphoto.com/id/1285132706/photo/photo-of-young-curly-girl.jpg?s=612x612&w=0&k=20&c=DCuav94tQc9Wcz2zoRnISn_ZLjYWerO-SHaeg5QgVHg="
+    }
+  ]
+}

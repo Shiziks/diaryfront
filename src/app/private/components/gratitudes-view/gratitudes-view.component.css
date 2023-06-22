@@ -1,0 +1,133 @@
+.card {
+    margin: auto;
+    box-shadow: rgb(0 0 0 / 30%) 0px 25px 20px -20px;
+    color: rgba(118, 123, 145, 0.8);
+    font-family: 'poppins-regular';
+    border: none;
+}
+
+.card-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0px;
+    font-family: 'poppins-bold';
+    color: rgba(118, 123, 145, 1);
+}
+
+.card-subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: 'poppins-regular';
+    color: rgba(118, 123, 145, 0.8);
+}
+
+.card.smallCard {
+    transition: all .3s ease-in-out;
+}
+
+.card.smallCard:hover {
+    box-shadow: 2px 4px 16px rgba(0, 0, 0, .16);
+    transform: scale3d(1.01, 1.01, 1.01);
+}
+
+.gratitude-title {
+    color: rgba(118, 123, 145, 0.8);
+    font-size: 1.2rem;
+    font-weight: 800;
+    font-family: 'poppins-semibold';
+    margin-bottom: 0px;
+    background-color: transparent;
+    border: none;
+}
+
+.card-body {
+    margin: auto;
+    padding-bottom: 0px;
+}
+
+
+.card-subtitle,
+.card-body.gratitudes {
+    font-size: 1rem;
+    font-weight: 200;
+    /* font-style: italic; */
+    font-family: 'poppins-regular';
+}
+
+div.list-group li {
+    color: rgba(118, 123, 145, 0.6);
+    font-size: 1rem;
+    border-bottom-color: #F5BB8E;
+    border-bottom-width: 2px;
+    ;
+}
+
+.card-footer {
+    color: rgba(118, 123, 145, 0.8);
+    background-color: transparent;
+    border: none;
+    font-size: 0.9rem;
+    font-family: 'poppins-semibold';
+}
+
+.link-secondary {
+    font-family: 'poppins-regular';
+    color: rgba(118, 123, 145, 0.8) !important;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: lowercase;
+    font-size: 0.9rem;
+    padding: 0px 8%;
+    border-radius: 1em 0 1em 0;
+    background-image: linear-gradient(-100deg,
+            rgba(254, 250, 238, 0.4),
+            rgba(246, 187, 142, 0.7) 95%,
+            rgba(254, 250, 238, 0.2));
+}
+
+.noData.message {
+    color: rgba(118, 123, 145, 0.5);
+    font-family: 'poppins-regular';
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 150%;
+    margin-bottom: 0px;
+}
+
+.closeIcon {
+    font-family: 'montserrat-bold';
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+    color: #F6BB8E;
+    transition: all .3s ease-in-out;
+}
+
+.closeIcon:hover {
+    transform: scale3d(1.2, 1.2, 1.2);
+    color: #E0A893;
+}
+
+.alert.alert-warning {
+    background-color: rgba(250, 213, 185, 0.8) !important;
+    color: rgba(118, 123, 145, 0.8) !important;
+    box-shadow: rgb(0 0 0 / 30%) 0px 25px 20px -20px;
+    font-family: 'poppins-regular';
+    font-weight: 600;
+    font-size: larger;
+    border: none;
+}
+
+div.btnClose {
+    color: rgba(118, 123, 145, 0.8) !important;
+    font-family: 'montserrat-bold' !important;
+    border: none;
+    padding: 0px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+div.btnClose:hover {
+    transform: scale3d(1.2, 1.2, 1.2);
+    color: rgba(118, 123, 145, 0.9) !important;
+}

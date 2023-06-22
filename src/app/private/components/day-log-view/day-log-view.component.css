@@ -1,0 +1,258 @@
+.card {
+    height: auto;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.30) 0px 25px 20px -20px;
+    color: rgba(118, 123, 145, 0.8);
+    font-family: 'poppins-regular';
+    border: none;
+}
+
+.errors {
+    width: 69%;
+    margin: 0 auto;
+}
+
+.errorstext {
+    width: 79%;
+    margin: 0 auto;
+}
+
+.card-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0px;
+    font-family: 'poppins-bold';
+    color: rgba(118, 123, 145, 1);
+}
+
+input.title {
+    border: 0px;
+    width: 70%;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: rgba(118, 123, 145, 1);
+    font-family: 'poppins-bold';
+    margin: auto;
+}
+
+.card-subtitle {
+    font-style: italic;
+    width: 70%;
+    margin: auto;
+    padding-left: 15px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-family: 'poppins-regular';
+    color: rgba(118, 123, 145, 0.8) !important;
+}
+
+.text {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+textarea {
+    min-height: auto;
+    width: 80% !important;
+    margin: auto;
+    overflow: auto;
+    border: none !important;
+    color: rgba(118, 123, 145, 0.8);
+    font-family: 'poppins-regular';
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 170%;
+}
+
+.card-footer {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: transparent;
+    border: none;
+}
+
+.btn-link.goback {
+    font-size: 1rem;
+    font-weight: 200;
+    font-style: italic;
+    font-family: 'poppins-regular';
+    text-decoration: none;
+    color: rgba(118, 123, 145, 0.8);
+    padding: 0px 3%;
+    border-radius: 1em 0 1em 0;
+    background-image: linear-gradient(-100deg,
+            rgba(254, 250, 238, 0.4),
+            rgba(246, 187, 142, 0.7) 95%,
+            rgba(254, 250, 238, 0.2));
+}
+
+.btn-link.goback:hover {
+    font-weight: 600;
+    color: rgba(118, 123, 145, 0.8);
+}
+
+button {
+    padding: 0px;
+}
+
+fa-icon.ng-fa-icon {
+    color: rgba(118, 123, 145, 0.8);
+    font-size: 1.2em;
+    margin: auto;
+}
+
+.image {
+    width: calc(100%/5);
+    overflow: hidden;
+    position: relative;
+    /* height:130px; */
+    height: 23vh;
+    padding: 0px;
+}
+
+.image:hover {
+    cursor: pointer;
+}
+
+.image:hover .card-image {
+    opacity: 0.5;
+}
+
+.card-image {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+#helperText {
+    margin: auto;
+    max-width: 90%;
+    background-color: rgba(245, 187, 142, 0.2);
+    border-radius: 5px;
+    padding: 0.4%;
+    padding-right: 1.5%;
+    color: rgba(118, 123, 145, 0.6);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+fa-icon.helper {
+    color: rgba(118, 123, 145, 0.6);
+    margin-left: 1%;
+    margin-right: 0px;
+    font-size: 1.5em;
+}
+
+.saveButton {
+    max-width: 90%;
+    margin: auto;
+}
+
+.buttonSave {
+    padding: 5px !important;
+    color: white !important;
+    min-width: 100%;
+}
+
+.button {
+    width: 100%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.form-group.button {
+    transition: all .3s ease-in-out;
+}
+
+.form-group.button:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    transform: scale3d(1.01, 1.01, 1.01)
+}
+
+button.btn.btn-secondary:hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+button.btn-secondary {
+    width: 100%;
+    background-color: rgba(118, 123, 145, 0.6) !important;
+    border: none;
+    text-transform: lowercase;
+}
+
+.saveImages {
+    padding: 3px 7px;
+    color: rgba(118, 123, 145, 0.8);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top: #E1E5EE 1px solid;
+    border-bottom: #E1E5EE 1px solid;
+    border-right: #E1E5EE 1px solid;
+    background-color: #E1E5EE;
+}
+
+fa-icon.icon {
+    margin-left: 0px !important;
+    color: white;
+    margin-right: 5px;
+}
+
+span.btn {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background-color: rgba(118, 123, 145, 0.8);
+    border-color: #9295a7;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+input[readonly] {
+    background-color: white !important;
+    cursor: text !important;
+}
+
+.text-success {
+    max-width: 90%;
+    margin: auto;
+}
+
+p button fa-icon {
+    font-size: 1.5em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+fa-icon.fileButton {
+    font-size: 2em;
+}
+
+p button.btn-link {
+    text-decoration: none;
+    margin-right: 5px;
+    color: rgba(118, 123, 145, 0.8) !important;
+    font-size: 1rem;
+}
+
+p button.btn-link:hover {
+    font-weight: 700;
+}

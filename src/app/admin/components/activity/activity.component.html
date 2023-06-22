@@ -1,0 +1,37 @@
+<div class="card p-5">
+    <div class="card-title text-center">
+        <h1>Manage activity:</h1>
+    </div>
+    <div class="card-body mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-subtitle mb-3">{{subtitle}}</div>
+            </div>
+        </div>
+
+        <div class="checks mt-4">
+            <ng-container *ngFor="let category of subcategories; let i=index">
+                <div class="form-check form-check-inline me-5">
+                    <input class="form-check-input" type="checkbox" [id]="category.id"
+                        (change)="OnChange(category.id, $event)" [checked]="category.admin_status">
+                    <label class="form-check-label" for="inlineCheckbox1">{{category.subcategory_name|titlecase}}
+                        tracking option</label>
+                </div>
+            </ng-container>
+
+        </div>
+        <div class="message text-start mt-4 ms-2 mb-1">
+            <small id="message" class="message form-text text-start">* One of the activity subcategories must have
+                active status always.</small>
+        </div>
+        <div class="buttonDiv text-end">
+            <button class="btn btn-secondary" (click)="saveAdminStatus()"
+                [disabled]="(changed1==null&&changed2==null) || (status1==false && status2==false)">save
+                changes</button>
+        </div>
+        <div class="error text-start mt-2 ms-2">
+            <small id="error" class="error form-text text-start" *ngIf="message!=''">* {{message}}</small>
+        </div>
+
+    </div>
+</div>

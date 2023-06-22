@@ -1,0 +1,98 @@
+<div class="wrapper">
+  <div id="carouselExampleSlidesOnly" class="carousel slide col-11 mx-auto">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <ng-container *ngIf="welcomeImageInfo">
+          <img src="http://127.0.0.1:8000/{{welcomeImageInfo.path}}" class="d-block w-100 h-50" alt="...">
+        </ng-container>
+
+        <div class="card-img-overlay">
+          <div class="carousel-caption d-none d-md-block mb-4">
+            <div class="caption mb-4" *ngIf="name!==''">Hello {{name|titlecase}}</div>
+            <div class="quotetex" *ngIf="quote">{{quote}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row row-cols-md-2 row-cols-sm-1 g-4 d-flex justify-content-center">
+      <ng-container *ngFor="let item of firstPart">
+        <ng-container *ngIf="item.name=='mood'&& item.status=='1'">
+          <div [ngClass]="item.name==lastSetting && firstPart.length%2!=0 ? 'col-md-10' : 'col-md-6'"><app-mood-log
+              (emitChange)="changeEmitted($event)"></app-mood-log></div>
+        </ng-container>
+
+        <ng-container *ngIf="item.name=='energy'&& item.status=='1'">
+          <div [ngClass]="item.name==lastSetting && firstPart.length%2!=0 ? 'col-md-10' : 'col-md-6'"><app-energy-log
+              (emitChange)="changeEmitted($event)"></app-energy-log></div>
+        </ng-container>
+
+        <ng-container *ngIf="item.name=='sleep' && item.status=='1'">
+          <div [ngClass]="item.name==lastSetting && firstPart.length%2!=0 ? 'col-md-10' : 'col-md-6'"><app-sleep-tracker
+              (newItemEvent)="changeEmitted($event)"></app-sleep-tracker></div>
+        </ng-container>
+
+        <ng-container *ngIf="item.name=='water'&& item.status=='1'">
+          <div [ngClass]="item.name==lastSetting && firstPart.length%2!=0 ? 'col-md-10' : 'col-md-6'"><app-water-tracker
+              (newItemEvent)="changeEmitted($event)"></app-water-tracker></div>
+        </ng-container>
+
+        <ng-container *ngIf="item.name=='activity' && item.status==1">
+          <div [ngClass]="item.name==lastSetting && firstPart.length%2!=0 ? 'col-md-10' : 'col-md-6'"><app-activity-log
+              (newItemEvent)="changeEmitted($event)"></app-activity-log></div>
+        </ng-container>
+
+        <ng-container *ngIf="item.name=='affirmations' && item.status==1">
+          <div [ngClass]="item.name==lastSetting && firstPart.length%2!=0 ? 'col-md-10' : 'col-md-6'"><app-affirmation
+              (newItemEvent)="changeEmitted($event)"></app-affirmation></div>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="secondPart.length%2==0 else odd">
+        <ng-container *ngFor="let item of secondPart">
+          <ng-container *ngIf="item.name=='gratitude'">
+            <div class="col-md-6">
+              <app-gratitude-log (showGratitudeEmitter)="showGratitude($event)"
+                (newItemEvent)="changeEmitted($event)"></app-gratitude-log>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="item.name=='daylog'">
+            <div class="col-md-6">
+              <app-post-form (showDaylogs)="showDayLog($event)" (allDayLogs)="allDayLog($event)"
+                (disableSetting)="changeEmitted($event)"></app-post-form>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+      <ng-template #odd>
+        <ng-container *ngFor="let item of secondPart">
+          <ng-container *ngIf="item.name=='gratitude'">
+            <div class="col-md-10 text-center x-auto">
+              <app-gratitude-log (showGratitudeEmitter)="showGratitude($event)"
+                (newItemEvent)="changeEmitted($event)"></app-gratitude-log>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="item.name=='daylog'">
+            <div class="col-md-10 text-center x-auto">
+              <app-post-form (showDaylogs)="showDayLog($event)" (allDayLogs)="allDayLog($event)"
+                (disableSetting)="changeEmitted($event)"></app-post-form>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-template>
+    </div>
+  </div>
+  <div class="container mt-5" *ngIf="showDayLogs">
+    <div class="row text-center">
+      <app-day-log [allDayLogs]="allDayLogs!"></app-day-log>
+    </div>
+  </div>
+  <div class="container mt-5" *ngIf="showGratitudes">
+    <div class="row text-center">
+      <app-gratitudes-view [allGratitudes]="allGratitudes!"></app-gratitudes-view>
+    </div>
+  </div>
+
+</div>

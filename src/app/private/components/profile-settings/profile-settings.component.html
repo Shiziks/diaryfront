@@ -1,0 +1,97 @@
+<div class="card mt-5">
+    <div class="row gx-0 h-100">
+        <div class="col-4 left-panel ps-2 pe-2 rounded">
+            <ng-container *ngIf="profilePhoto!='' else dummyImage">
+                <div class="profle-img text-center mt-4">
+                    <!-- TREBA IZVUCI SLIKU IZ -->
+                    <img src='{{profilePhoto}}' class="card-img">
+                </div>
+            </ng-container>
+            <ng-template #dummyImage>
+                <div class="profle-img text-center mt-4">
+                    <img src="../../../../assets/images/user_placeholder.png" [hidden]="profilePhoto"
+                        class="card-img" />
+                </div>
+            </ng-template>
+
+            <div class="user-info mt-3">
+                <div class="card-title text-center mt-5 mb-5">
+                    {{fullName}}
+                </div>
+                <div class="user-info text-center mb-5">
+                    <div class="col-12 mb-2 under">
+                        <span> EMAIL: </span>
+                    </div>
+                    <div class="col-12 mb-4 info"> {{email}}</div>
+                    <div class="col-12 mb-2 under">
+                        <span> BIRTH DATE: </span>
+                    </div>
+                    <div class="col-12 mb-4 info"> {{birthDate}}</div>
+
+                    <div class="col-12 mb-2 under">
+                        <span>USER SINCE:</span>
+                    </div>
+                    <div class="col-12 mb-4 info"> {{userSince}}</div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="card-body">
+                <ul class="nav nav-pills mb-3 justify-content-end pe-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-home" #pillsHome type="button" role="tab" aria-controls="pills-home"
+                            aria-selected="true">Personal Info</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="false">Profile Settings</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                            aria-selected="false">Password</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profileimage-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profileimage" type="button" role="tab"
+                            aria-controls="pills-profileimage" aria-selected="false">Profile Image</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profileimage-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-testemonial" type="button" role="tab"
+                            aria-controls="pills-testemonial" aria-selected="false">Testemonial</button>
+                    </li>
+
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                        aria-labelledby="pills-home-tab" tabindex="0">
+                        <app-profile-info (newFullName)="detectChange($event)" [firstName]="firstName"
+                            [lastName]="lastName" [gender]="gender" [email]="email"
+                            [birthDay]="birthDay"></app-profile-info>
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                        tabindex="0">
+                        <app-profile-view></app-profile-view>
+                    </div>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                        tabindex="0">
+                        <app-profile-password-reset></app-profile-password-reset>
+                    </div>
+                    <div class="tab-pane fade" id="pills-profileimage" role="tabpanel"
+                        aria-labelledby="pills-profileimage-tab" tabindex="0">
+                        <app-profile-image (profileImageToSend)="profilePhotoReceived($event)"></app-profile-image>
+                    </div>
+                    <div class="tab-pane fade" id="pills-testemonial" role="tabpanel"
+                        aria-labelledby="pills-testemonial-tab" tabindex="0">
+                        <app-profile-testemonial></app-profile-testemonial>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,45 @@
+<div class="dropdown ms-3">
+  <div class="btn-group me-2" *ngIf="!pie">
+    <button class="btn btn-light btn-sm" type="button" #latest value="latest" id="buttonLatest"
+      (click)="emitValue(latest)">
+      Latest ↓
+    </button>
+  </div>
+  <div class="btn-group me-2">
+    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      {{dropDownMonth}}
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <ng-container *ngFor="let month of monthsToUse">
+        <li>
+          <button class="dropdown-item" [value]="month" #monthemit (click)="emitValue(monthemit)">{{month}}</button>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+
+  <!-- ######### FILTER BY YEAR ########### -->
+  <div class="btn-group me-2 dropdown">
+    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuYear"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      {{dropDownYear}}
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuYear">
+      <ng-container *ngFor="let year of yearsExisting">
+        <li>
+          <button class="dropdown-item" [value]="year" #yearemit (click)="emitValue(yearemit)">{{year}}</button>
+        </li>
+      </ng-container>
+
+    </ul>
+  </div>
+
+  <div class="btn-group me-2" *ngIf="!pie">
+    <button class="btn btn-light btn-sm" type="button" id="buttonLatest" #oldest value="oldest" id="buttonLatest"
+      (click)="emitValue(oldest)">
+      Oldest ↑
+    </button>
+  </div>
+
+</div>

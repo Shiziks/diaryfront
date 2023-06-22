@@ -1,0 +1,146 @@
+<ng-container *ngIf="daylogInfo">
+
+    <div class="card text-center mt-3">
+        <form [formGroup]="editDayLogForm">
+            <div class="mt-5 text-start form-group">
+                <div class="errors mb-1">
+                    <small class='text-danger' *ngIf="this.editDayLogForm.get('titleTs')?.hasError('required')">
+                        Title is required.
+                    </small>
+                    <small class='text-danger' *ngIf="this.editDayLogForm.get('titleTs')?.hasError('minlength')">
+                        Title must be at least 2 characters long.
+                    </small>
+                    <small class='text-danger' *ngIf="this.editDayLogForm.get('titleTs')?.hasError('maxlength')">
+                        Title can have maximum of 120 characters.
+                    </small>
+                </div>
+                <div class="card-title text-center">
+                    <input type="text" class="form-control title" type="text" formControlName="titleTs" />
+                </div>
+            </div>
+            <div class="card-subtitle text-muted mb-2 text-start">
+
+                <p>{{daylogInfo.created_at| date:'MMMM d, y.'}}</p>
+            </div>
+
+            <div class="card-body mb-4">
+                <div class="form-text mb-4 text-end" id="helperText">
+                    {{helperTitleText}}
+                    <fa-icon con [icon]="faInfo" class="align-middle helper"></fa-icon>
+
+                </div>
+                <div class="text form-group">
+                    <textarea name="" id="" class="form-control" name='textarea' autosize
+                        formControlName="textTs"></textarea>
+                    <!-- {{daylogInfo.text}} -->
+                    <div class="errorstext mt-1">
+                        <small class='text-danger' *ngIf="this.editDayLogForm.get('textTs')?.hasError('required')">
+                            Text is required.
+                        </small>
+                        <small class='text-danger' *ngIf="this.editDayLogForm.get('textTs')?.hasError('minlength')">
+                            Text must be at least 3 characters long.
+                        </small>
+                        <small class='text-danger' *ngIf="this.editDayLogForm.get('textTs')?.hasError('maxlength')">
+                            Text can have maximum of 1500 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="saveButton text-end mt-5">
+                    <button class="btn btn-secondary buttonSave" (click)="editDayLog()"
+                        [disabled]="this.editDayLogForm.invalid">Save</button>
+                </div>
+                <ng-container *ngIf="edited">
+                    <p class="text-success text-end mt-2">
+                        DayLog edited successfully.
+                    </p>
+                </ng-container>
+                <div class="card-image mt-5">
+                    <div class="row mx-5">
+                        <ng-container *ngIf="length!=0">
+                            <ng-container *ngFor="let image of images">
+
+                                <ng-container *ngIf="length < 4; else allImages">
+                                    <div class="image card-img col-3 mx-2"
+                                        (click)="openModal(image.file_path, image.id)" id={{image.id}}>
+                                        <img src="http://127.0.0.1:8000/{{image.file_path}}" alt=""
+                                            class="card-image img-fluid">
+                                    </div>
+                                </ng-container>
+                                <ng-template #allImages>
+                                    <div class="image card-img col mx-2" (click)="openModal(image.file_path, image.id)"
+                                        id={{image.id}}>
+                                        <img src="http://127.0.0.1:8000/{{image.file_path}}" alt=""
+                                            class="card-image img-fluid">
+                                    </div>
+                                </ng-template>
+
+                            </ng-container>
+                            <ng-container *ngIf="length>0 && length<5">
+                                <p class="buttonLink text-end">
+                                    <button class="btn btn-link link-secondary" (click)="showAddImage()">{{linkText}}
+                                        <fa-icon [icon]="faIcon"></fa-icon></button>
+                                </p>
+                            </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf='(length==0 || showAdd)'>
+                            <div class="input-group" #imageAdd>
+                                <span class="input-group-btn">
+                                    <span class="btn btn-secondary btn-file">
+                                        <fa-icon con [icon]="faPlus" class="align-middle icon fileButton"></fa-icon>
+                                        Add Images <input type="file" multiple name="inputimage"
+                                            (change)="checkImages($event)">
+                                    </span>
+                                </span>
+                                <input type="text" class="form-control readonlyinput" readonly
+                                    placeholder={{filenames}}> <!--Sluzi za ispis imena uhvacenog fajla-->
+                                <button class="btn btn-light saveImages" (click)="saveImages()"
+                                    [disabled]="disableSave">
+                                    Save Images
+                                </button>
+                            </div>
+                            <div class="message text-start mt-1 ms-2">
+                                <ng-container *ngIf="showErrors">
+                                    <ng-container *ngFor="let error of errorMessage">
+                                        <p class="text-danger text-sm">- {{error}} </p>
+                                    </ng-container>
+                                </ng-container>
+                                <ng-container *ngIf="uploaded">
+                                    <p class="text-success mt-2 text-sm">
+                                        Uploaded successfully.
+                                    </p>
+                                </ng-container>
+
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="form-text mt-3 text-end" id="helperText">
+                    <ng-container *ngIf="length!=0; else otherText">
+                        {{helperImageText}}
+                        <fa-icon con [icon]="faInfo" class="align-middle helper"></fa-icon>
+                    </ng-container>
+                    <ng-template #otherText>
+                        {{helperImageText2}}
+                    </ng-template>
+                </div>
+                <div class="message text-start mt-1 ms-2">
+                    <ng-container *ngIf="deleteError!=''">
+                        <p class="text-danger text-sm">- {{deleteError}} </p>
+                    </ng-container>
+                </div>
+            </div>
+        </form>
+        <div class="card-footer align-middle d-flex">
+            <p class="btn btn-link goback ps-3 mb-4 ms-3 me-auto" (click)="goBack()">
+                <fa-icon [icon]="faCaretLeft" class="align-middle ms-3"></fa-icon>
+                Go back to profile
+            </p>
+            <p class="btn btn-link goback pe-4 mb-4 text-center me-3" (click)="deleteDaylog()">
+                Delete daylog
+                <fa-icon [icon]="faXmark" class="align-middle ms-3"></fa-icon>
+            </p>
+            <!--MODAL MODAL MODAL MODAL MODAL MODAL MODAL MODAL-->
+        </div>
+    </div>
+</ng-container>

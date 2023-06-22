@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header text-end">
+        <button type="button" class="btn btn-link close mt-2 mb-2" aria-label="Close" id='water'
+            (click)='disableIt(name)' #name>X</button>
+    </div>
+    <div class="card-body text-center">
+        <div class="card-title mb-3">
+            <p>Water tracker:</p>
+        </div>
+        <div class="card-subtitle text-muted mb-4">
+            How many glasses of water did you drink today?
+        </div>
+        <div class="row mb-4">
+            <ng-container *ngFor="let waterGlass of waterGlassesInfo; let i=index">
+                <div class="col text-center glass">
+                    <a (click)="logWaterGlasses(waterGlass)" value="1" id="{{waterGlass.id}}"
+                        [ngClass]="{'clicked':waterGlassId>=waterGlass.id}">
+                        <fa-icon [icon]="waterGlass.icon" class="icon"></fa-icon>
+                        <p class="waterGlassNumber">{{ waterGlass.glass_number }}</p>
+                    </a>
+                </div>
+            </ng-container>
+        </div>
+
+        <ng-container>
+            <p class="buttonLink text-end">
+                <button class="btn btn-link link-secondary" (click)="showIntakes()" value="">View all Water </button>
+            </p>
+        </ng-container>
+    </div>
+</div>

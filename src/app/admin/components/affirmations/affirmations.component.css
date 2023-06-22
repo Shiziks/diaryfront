@@ -1,0 +1,196 @@
+.card {
+    border: none;
+    box-shadow: rgb(0 0 0 / 30%) 0px 25px 20px -20px;
+    color: rgba(118, 123, 145, 0.8);
+    font-family: 'poppins-regular';
+}
+
+.card-title h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0px;
+    font-family: 'poppins-bold';
+    color: rgba(118, 123, 145, 1);
+}
+
+.card-subtitle,
+.subtitle {
+    font-size: 1.35rem;
+    font-weight: 500;
+    font-family: 'poppins-semibold';
+    color: rgba(118, 123, 145, 0.8) !important;
+}
+
+input {
+    color: rgba(118, 123, 145, 0.8);
+}
+
+input::placeholder {
+    color: rgba(118, 123, 145, 0.8);
+}
+
+input:active,
+input:focus {
+    color: rgba(118, 123, 145, 0.8);
+    outline: none !important;
+    outline-color: transparent !important;
+    outline-style: none !important;
+    box-shadow: none;
+    border: 1px solid rgba(118, 123, 145, 0.5);
+    background-color: transparent;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+input[data-autocompleted] {
+    background-color: transparent !important;
+}
+
+input.form-check-input,
+input.form-check-input:focus {
+    background-color: white;
+    border-color: rgba(118, 123, 145, 0.4);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3.75' fill='rgba(245, 187, 142,1)'/></svg>");
+}
+
+input.form-check-input:checked {
+    background-color: rgba(245, 187, 142, 0.5);
+    border-color: rgba(118, 123, 145, 0.4);
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3.75' fill='rgba(118, 123, 145,0.7)'/></svg>");
+}
+
+
+small.error {
+    padding-left: 7px;
+    color: #f2a469 !important;
+}
+
+.btn.btn-secondary {
+    width: 100%;
+    background-color: rgba(118, 123, 145, 0.6) !important;
+    border: none;
+    text-transform: lowercase;
+
+}
+
+.btn.btn-secondary:disabled {
+    background-color: rgba(118, 123, 145, 0.3) !important;
+}
+
+table {
+    color: rgba(118, 123, 145, 0.8);
+}
+
+th.first {
+    background-color: rgba(245, 187, 142, 0.4);
+    color: rgba(118, 123, 145, 0.8);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'poppins-semibold';
+    border-bottom: none;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+
+}
+
+
+
+table>tbody>tr:hover {
+    background-color: #f2f4f8;
+}
+
+
+
+tr>td:last-of-type,
+tr>td:nth-of-type(2) {
+    font-family: 'poppins-semibold';
+    color: #F5BB8E;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: all .3s ease-in-out;
+
+}
+
+td.align-middle.text-center:hover {
+    font-size: 1.2rem;
+    color: #f2a469;
+
+}
+
+mat-paginator {
+    background-color: transparent;
+    color: rgba(118, 123, 145, 0.8);
+    font-family: 'poppins-regular';
+    font-size: small;
+    /* height: 40px!important; */
+}
+
+:host ::ng-deep mat-select {
+
+    color: rgba(118, 123, 145, 0.8) !important;
+}
+
+:host ::ng-deep span.mat-select-min-line.ng-tns-c143-2.ng-star-inserted {
+    color: rgba(118, 123, 145, 0.8) !important;
+}
+
+:host ::ng-deep div#mat-select-value-1 {
+    color: pink;
+}
+
+:host ::ng-deep div#mat-select-value-1 {
+    color: rgba(118, 123, 145, 0.8) !important;
+}
+
+:host ::ng-deep .mat-select-arrow.ng-tns-c143-2 {
+    color: rgba(118, 123, 145, 0.8);
+}
+
+:host ::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow,
+:host ::ng-deep .mat-paginator-range-label {
+    color: #F5BB8E !important;
+}
+
+:host ::ng-deep button.mat-focus-indicator.mat-tooltip-trigger.mat-paginator-navigation-first.mat-icon-button.mat-button-base.mat-button-disabled.ng-star-inserted,
+:host ::ng-deep button.mat-focus-indicator.mat-tooltip-trigger.mat-paginator-navigation-previous.mat-icon-button.mat-button-base.mat-button-disabled,
+:host ::ng-deep button.mat-focus-indicator.mat-tooltip-trigger.mat-paginator-navigation-last.mat-icon-button.mat-button-base.ng-star-inserted.mat-button-disabled,
+:host ::ng-deep button.mat-focus-indicator.mat-tooltip-trigger.mat-paginator-navigation-next.mat-icon-button.mat-button-base.mat-button-disabled {
+    color: rgba(118, 123, 145, 0.2) !important;
+}
+
+:host ::ng-deep .mat-select-value {
+    color: rgba(118, 123, 145, 0.8) !important;
+}
+
+:host ::ng-deep .mat-select-arrow {
+    color: rgba(118, 123, 145, 0.8) !important;
+}
+
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+    color: #F5BB8E !important;
+    background-color: #F5BB8E !important;
+
+}
+
+::ng-deep .mat-primary .mat-option {
+    background-color: white !important;
+    color: rgba(118, 123, 145, 0.8) !important;
+    font-family: 'poppins-regular';
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #F5BB8E !important;
+    background-color: #f2f4f8 !important;
+}
+
+.clickable,
+.editIcon {
+    cursor: pointer;
+}
+
+small.success {
+    color: rgba(118, 123, 145, 0.8);
+    font-family: 'poppins-regular';
+}

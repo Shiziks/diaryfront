@@ -1,0 +1,76 @@
+<div class="card p-5">
+    <div class="card-title text-center">
+        <h1>Manage sleepng hours:</h1>
+    </div>
+    <div class="card-body mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-subtitle mb-3">{{subtitle}}</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="first align-middle">#</th>
+                            <th scope="col" class="first align-middle">Sleeping hours:</th>
+                            <th scope="col" class="first align-middle text-center">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let sleepingHour of sleepHours; let i=index">
+                            <tr>
+                                <th scope="row" class="align-middle">{{i+1}}</th>
+                                <td class="align-middle" id="{{sleepingHour.id}}" #sleepInfo>{{sleepingHour.hour}}</td>
+                                <td class="align-middle text-center" (click)="editHours(sleepInfo)"
+                                    [scrollTo]="formView">
+                                    <fa-icon [icon]="faPen"></fa-icon>
+                                </td>
+                            </tr>
+                        </ng-container>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+        <div class="row pt-2" #formView>
+            <div class="col-12 mt-4" *ngIf="showForm">
+                <div class="card-subtitle mb-3">{{subtitle1}}</div>
+                <form [formGroup]="seleepForm">
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" id="newQuote" aria-describedby="emailHelp"
+                            formControlName="sleepTs">
+                        <div
+                            *ngIf="seleepForm?.get('sleepTs')?.hasError('required') && seleepForm?.get('sleepTs')?.dirty">
+                            <small id="quoteError" class="error form-text text-muted">* Can't be empty.</small>
+                        </div>
+                        <div
+                            *ngIf="seleepForm.get('sleepTs')?.hasError('minlength') || seleepForm.get('sleepTs')?.hasError('maxlength')">
+                            <small id="quoteError" class="error form-text text-muted">* Minimal length is 2 and maximal
+                                is 15.</small>
+                        </div>
+                        <div *ngIf="seleepForm.get('sleepTs')?.hasError('pattern')">
+                            <small id="quoteError" class="error form-text text-muted">* Must be a small letter word and
+                                not numbers or any characters.</small>
+                        </div>
+                    </div>
+                    <div class="buttonDiv text-end mt-3">
+                        <button class="btn btn-secondary" (click)="saveChanges()"
+                            [disabled]="this.seleepForm.invalid || (!this.seleepForm.invalid && !this.seleepForm.dirty)">edit</button>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="error text-end mt-2">
+                <small id="error" class="error form-text text-end" *ngIf="sleepError">Something went wrong. Please
+                    reload the page and try again.</small>
+            </div>
+            <div class="success text-start mt-2">
+                <small id="authorError" class="success form-text text-start" *ngIf="successMessage">Changes
+                    saved.</small>
+            </div>
+        </div>
+
+    </div>
+</div>

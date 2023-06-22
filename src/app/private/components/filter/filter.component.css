@@ -1,0 +1,14 @@
+.dropdown-menu{
+    background-color: rgba(118, 123, 145, 1);
+}
+
+.btn.btn-light.btn-sm{
+    color:rgba(118, 123, 145, 1);
+    background-color: rgba(225, 229, 238, 0.8);
+    border:0px;
+}
+
+.btn.btn-secondary{
+    background-color: rgba(118, 123, 145, 1);
+    border:0px;
+}

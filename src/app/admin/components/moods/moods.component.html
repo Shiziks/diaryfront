@@ -1,0 +1,99 @@
+<div class="card p-5">
+    <div class="card-title text-center">
+        <h1>Manage moods:</h1>
+    </div>
+    <div class="card-body mt-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-subtitle mb-3">{{subtitle}}</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="first align-middle">#</th>
+                            <th scope="col" class="first align-middle">Mood:</th>
+                            <th scope="col" class="first align-middle">Icon:</th>
+                            <th scope="col" class="first align-middle text-center">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let mood of allMoods; let i=index">
+                            <tr>
+                                <th scope="row" class="align-middle">{{i+1}}</th>
+                                <td class="align-middle" id="{{mood.id}}" #moodInfo>{{mood.mood_name}}</td>
+                                <td class="align-middle" id="{{mood.id}}" #moodInfo><fa-icon class="tableicon me-2"
+                                        [icon]="mood.icon"></fa-icon> {{mood.icon}} </td>
+                                <td class="align-middle text-center editIcon" (click)="editMood(mood)"
+                                    [scrollTo]="formView">
+                                    <fa-icon [icon]="faPen"></fa-icon>
+                                </td>
+                            </tr>
+                        </ng-container>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+        <div class="row pt-2" #formView>
+            <div class="col-12 mt-4" *ngIf="changeIcon">
+                <div class="card-subtitle mb-3">{{subtitle1}}</div>
+
+                <form [formGroup]="moodForm">
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" id="newQuote" aria-describedby="emailHelp"
+                            formControlName="moodTs">
+                        <div *ngIf="moodForm.get('moodTs')?.hasError('required') && moodForm.get('moodTs')?.dirty">
+                            <small id="quoteError" class="error form-text text-muted">* Mood name is required.</small>
+                        </div>
+                        <div
+                            *ngIf="moodForm.get('moodTs')?.hasError('minlength') || moodForm.get('moodTs')?.hasError('maxlength')">
+                            <small id="quoteError" class="error form-text text-muted">* Minimal length is 2 and maximal
+                                is 10.</small>
+                        </div>
+                        <div *ngIf="moodForm.get('moodTs')?.hasError('pattern')">
+                            <small id="quoteError" class="error form-text text-muted">* Must be a small letter word and
+                                not numbers or any characters.</small>
+                        </div>
+
+                    </div>
+                    <div class="row mt-4 mb-4 text-center">
+                        <div class="text-start mb-4">
+                            <span>
+                                <fa-icon [icon]="faSquare" class="activeIcon ms-3"></fa-icon> Current mood icon
+                                <fa-icon [icon]="faSquare" class="inactiveIcons ms-3"></fa-icon> Already used icons
+                                <fa-icon [icon]="faSquare" class="ms-3"></fa-icon> Available icons
+                            </span>
+                        </div>
+                        <ng-container *ngFor="let icon of icons; let i=index">
+                            <ng-container *ngIf="existingMoodIcons.includes(icon.iconName); else withMethod">
+                                <div class="col-2 moodIcon mb-3 notclickable" id="{{i}}"
+                                    [ngClass]="{'active': currentIconId===i}"> <fa-icon [icon]="icon"></fa-icon></div>
+                            </ng-container>
+                            <ng-template #withMethod>
+                                <div class="col-2 moodIcon mb-3 clickable" (click)="pickNewIcon(i)" id="{{i}}"
+                                    [ngClass]="{'active': currentIconId===i}"> <fa-icon [icon]="icon"></fa-icon></div>
+                            </ng-template>
+                        </ng-container>
+                    </div>
+                    <div class="buttonDiv text-end mt-3">
+                        <button class="btn btn-secondary" (click)="saveChanges()"
+                            [disabled]="this.moodForm.invalid || !this.moodForm.dirty && this.iconchange">edit</button>
+                    </div>
+
+                </form>
+
+
+            </div>
+            <div class="error text-end">
+                <small class="error form-text text-muted text-end" *ngIf="moodError">Something went wrong. Please reload
+                    the page and try again.</small>
+            </div>
+            <div class="success text-start">
+                <small class="success text-start" *ngIf="successMessage">Saved successfully.</small>
+            </div>
+        </div>
+
+    </div>
+</div>

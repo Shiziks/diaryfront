@@ -1,0 +1,20 @@
+<div class="card text-center affirmationcard" (click)='typingEffect()' [ngClass]="status ? 'clickon' : 'clickoff'">
+    <div class="card-header text-end">
+        <button type="button" class="btn btn-link close mt-2 mb-2" aria-label="Close" id='affirmations'
+            (click)='disableIt(name)' #name>X</button>
+    </div>
+    <div id="mouseEvents" (mouseenter)="showTooltip()" (mouseleave)="hideTooltip()">
+        <div id="tooltip" #tooltip>Click to generate an affirmation</div>
+        <div class="card-body mt-5 pb-5 mb-5">
+            <div id="element" #tooltipElement>
+                <div class="card-subtitle mb-4">
+                    For today I choose:
+                </div>
+                <div class="card-text">
+                    <span #textElement class="text link"></span>
+                    <span class="blink"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
