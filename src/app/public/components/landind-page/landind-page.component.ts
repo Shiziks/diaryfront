@@ -38,7 +38,8 @@ export class LandindPageComponent implements OnInit, AfterViewInit, OnDestroy {
         this.formatedData = this.formatData(result);
       },
       error: er => {
-        this.formatData([]);
+        this.formatedData=this.formatData();
+        console.log(this.formatedData);
         console.log(er);
       }
     });
@@ -64,9 +65,16 @@ export class LandindPageComponent implements OnInit, AfterViewInit, OnDestroy {
     return Math.ceil(this.testemonials.length / num);
   }
 
-  formatData(data: any) {
-    let newData = data;
-    let len = data.length;
+  formatData(data?: any) {
+    if(data){
+      var newData = data;
+      var len = data.length;
+    }
+    else{
+      len=0;
+      newData=[];
+    }
+
     if (len < 12) {
       this.difference = 12 - len;
       this.shuffeledDummyT = this.shuffle(this.dummyTestemonials.testemonials);
