@@ -200,7 +200,7 @@
         <div class="carousel-inner">
           <ng-container *ngFor="let t of formatedData; let i=index">
             <ng-container *ngIf="i%3==0">
-              <div class="carousel-item" [ngClass]="{'active': i<=0}">
+              <div class="carousel-item" [class]="(i <=0) ? 'active' : 'inactive'">
                 <div class="row row-cols-1 row-cols-md-3 g-2">
                   <ng-container *ngFor="let t of formatedData; let j=index">
                     <ng-container *ngIf="j>=i && j<=i+2">

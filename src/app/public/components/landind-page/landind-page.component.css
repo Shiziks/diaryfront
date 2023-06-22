@@ -10,14 +10,6 @@ body.mat-typography {
     border-right: 1px solid #E1E5EE;
 }
 
-@media only screen and (max-width: 768px) {
-    .col-sm-12.oneFeature {
-        border-right: 0px;
-        border-bottom: 1px solid #E1E5EE;
-        margin-top: 5%;
-    }
-}
-
 .oneFeature:last-of-type {
     border-right: 0px;
 }
@@ -27,13 +19,6 @@ body.mat-typography {
     border-bottom: 0px;
 }
 
-@media only screen and (max-width: 991px) {
-    .col-sm-12.featureBottomColumn {
-        padding-bottom: 7%;
-        border-bottom: 1px solid #E1E5EE;
-        padding-top: 7%;
-    }
-}
 
 .featureTitle h3 {
     font-size: 30px;
@@ -45,46 +30,9 @@ body.mat-typography {
     border-radius:1.5em;
 }
 
-.carousel-inner {
-    position: relative;
-    width: 80%;
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 2% 0;
-}
-
-.carousel-indicators {
-    position: relative;
-    margin-top: 1%;
-}
-
-.carousel-dark .carousel-indicators [data-bs-target] {
-    background-color: #F5BB8E;
-}
-
-.testemonials .card-title {
-    color: #F5BB8E;
-}
-
 .footerLogo {
     max-height: auto;
     width: 37%;
-}
-
-@media only screen and (max-width: 768px) {
-
-    footer p.first,
-    footer ul.nav {
-        margin: 0 auto !important;
-        display: flex;
-        justify-content: center !important;
-    }
-
-    footer a img.footerLogo {
-        margin: 5% auto 0;
-        max-height: auto;
-        width: 20%;
-    }
 }
 
 li a svg path {
@@ -272,4 +220,57 @@ span.melog {
 .featureIcon {
     bottom: 0;
     margin-bottom: 0;
+}
+.carousel-inner {
+    position: relative;
+    width: 80%;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 2% 0;
+}
+
+.carousel-indicators {
+    position: relative;
+    margin-top: 1%;
+}
+
+.carousel-dark .carousel-indicators [data-bs-target] {
+    background-color: #F5BB8E;
+}
+
+.testemonials .card-title {
+    color: #F5BB8E;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .col-sm-12.oneFeature {
+        border-right: 0px;
+        border-bottom: 1px solid #E1E5EE;
+        margin-top: 5%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .col-sm-12.featureBottomColumn {
+        padding-bottom: 7%;
+        border-bottom: 1px solid #E1E5EE;
+        padding-top: 7%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    footer p.first,
+    footer ul.nav {
+        margin: 0 auto !important;
+        display: flex;
+        justify-content: center !important;
+    }
+
+    footer a img.footerLogo {
+        margin: 5% auto 0;
+        max-height: auto;
+        width: 20%;
+    }
 }
