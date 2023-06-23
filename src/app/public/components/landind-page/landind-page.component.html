@@ -196,7 +196,74 @@
   <!-- TESTEMONIALS TESTEMONIALS TESTEMONIALS TESTEMONIAL -->
   <div class="container testemonials mb-3">
     <div class="row carousel">
-      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="true">
+        <div class="carousel-inner">
+          <ng-container *ngFor="let t of formatedData; let i=index">
+            <ng-container *ngIf="i%3==0">
+              <div class="carousel-item" [class]="(i <=0) ? 'active' : 'inactive'">
+                <div class="row row-cols-1 row-cols-md-3 g-2">
+                  <ng-container *ngFor="let t of formatedData; let j=index">
+                    <ng-container *ngIf="j>=i && j<=i+2">
+                      <div class="col">
+                        <div class="card h-100">
+                          <div class="profle-img text-center">
+                            <ng-container *ngIf="t.path && t.anonymous==0; else defaultPhoto">
+                              <img src="{{t.path}}" class="card-img-top" alt="...">
+                            </ng-container>
+                            <ng-template #defaultPhoto>
+                              <img src="../../../../assets/images/user_placeholder.png" class="card-img-top" alt="...">
+                            </ng-template>
+                          </div>
+                          <div class="card-body">
+                            <div class="card-title">
+                              <ng-container *ngIf="t.anonymous==0; else an">
+                                <h5>{{t.first_name|uppercase}} {{t.last_name|uppercase}}</h5>
+                              </ng-container>
+                              <ng-template #an>
+                                <h5>Anonymous User</h5>
+                              </ng-template>
+                            </div>
+                            <div class="card-text">
+                              <p class="">{{t.text}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        <div class="carousel-indicators">
+          <ng-container *ngFor="let test of formatedData; let k=index">
+            <ng-container *ngIf="k%3==0">
+              <button type="button" data-bs-target="#carouselExampleDark" [attr.data-bs-slide-to]="k/3" class="active"
+                aria-current="true" [attr.aria-label]="k/3"></button>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+      <!-- <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <ng-container *ngFor="let t of formatedData; let i=index">
             <ng-container *ngIf="i%3==0">
@@ -252,7 +319,7 @@
             </ng-container>
           </ng-container>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 
